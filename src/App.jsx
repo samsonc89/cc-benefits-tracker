@@ -75,11 +75,13 @@ const BENEFITS = [
     name: "Chase Sapphire",
     benefits: [
       {
+        id: 2001,
         benefit: "300 Travel Credit",
         expires: "End of the year date",
         used: false,
       },
       {
+        id: 2002,
         benefit: "TSA/Global Entry",
         expires: "End of the year date",
         used: false,
