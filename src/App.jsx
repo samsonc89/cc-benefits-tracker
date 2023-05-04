@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const BenefitsTable = ({ benefits }) => {
-  let rows = [];
+  let cards = [];
 
   return (
     <table>
@@ -12,9 +12,21 @@ const BenefitsTable = ({ benefits }) => {
         </tr>
       </thead>
       <tbody>
-        <Benefit benefit={benefits} />
+        <CreditCard benefits={benefits} />
       </tbody>
     </table>
+  );
+};
+
+const CreditCard = ({ benefits }) => {
+  return (
+    <>
+      <tr>
+        <th colSpan={3}>{benefits.name}</th>
+      </tr>
+
+      <Benefit benefit={benefits} />
+    </>
   );
 };
 
@@ -30,7 +42,7 @@ const Benefit = ({ benefit }) => {
   );
 };
 const BENEFITS = {
-  card: "Amex Platinum Personal",
+  name: "Amex Platinum Personal",
   benefit: "$200 Saks Fifth Credit (2nd half)",
   expires: "Dec 31",
   used: false,
