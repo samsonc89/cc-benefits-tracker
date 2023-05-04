@@ -2,31 +2,33 @@
 const BenefitsTable = ({ benefits }) => {
   let cards = [];
 
+  return <CreditCard benefits={benefits} />;
+};
+
+const CreditCard = ({ benefits }) => {
+  let benefitRows = [];
+
+  benefits.benefits.forEach((benefit) => {
+    benefitRows.push(<Benefit benefit={benefit} key={benefit.id} />);
+  });
   return (
     <table>
       <thead>
+        <tr>
+          <th colSpan={3}>{benefits.name}</th>
+        </tr>
         <tr>
           <th>Benefit</th>
           <th>Expires</th>
           <th>Used</th>
         </tr>
       </thead>
-      <tbody>
-        <CreditCard benefits={benefits} />
-      </tbody>
+
+      {/* Go through each of the benefits and spit out then 
+      benefit, exp and used checkmark
+    */}
+      <tbody>{benefitRows}</tbody>
     </table>
-  );
-};
-
-const CreditCard = ({ benefits }) => {
-  return (
-    <>
-      <tr>
-        <th colSpan={3}>{benefits.name}</th>
-      </tr>
-
-      <Benefit benefit={benefits} />
-    </>
   );
 };
 
@@ -43,9 +45,20 @@ const Benefit = ({ benefit }) => {
 };
 const BENEFITS = {
   name: "Amex Platinum Personal",
-  benefit: "$200 Saks Fifth Credit (2nd half)",
-  expires: "Dec 31",
-  used: false,
+  benefits: [
+    {
+      id: 0,
+      benefit: "$200 Saks Fifth Credit (first half)",
+      expires: "May 31",
+      used: true,
+    },
+    {
+      id: 1,
+      benefit: "$200 Saks Fifth Credit (2nd half)",
+      expires: "Dec 31",
+      used: false,
+    },
+  ],
 };
 
 function App() {
