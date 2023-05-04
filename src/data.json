@@ -1,0 +1,26 @@
+[
+  {
+    "card": "Chase Sapphire Reserve",
+    "benefit": "300 Travel Credit",
+    "expires": "End of the year date",
+    "used": false
+  },
+  {
+    "card": "Chase Sapphire Reserve",
+    "benefit": "TSA/Global Entry",
+    "expires": "End of the year date",
+    "used": false
+  },
+  {
+    "card": "Amex Platinum Personal",
+    "benefit": "$200 Saks Fifth Credit (first half)",
+    "expires": "May 31",
+    "used": false
+  },
+  {
+    "card": "Amex Platinum Personal",
+    "benefit": "$200 Saks Fifth Credit (2nd half)",
+    "expires": "Dec 31",
+    "used": false
+  }
+]
