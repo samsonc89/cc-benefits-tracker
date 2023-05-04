@@ -1,4 +1,4 @@
-const ProductTable = () => {
+const ProductTable = ({ product }) => {
   return (
     <table>
       <thead>
@@ -9,26 +9,34 @@ const ProductTable = () => {
         </tr>
       </thead>
       <tbody>
-        <Benefit />
+        <Benefit bene={product} />
       </tbody>
     </table>
   );
 };
 
-const Benefit = () => {
+const Benefit = ({ bene }) => {
   return (
     <tr>
-      <td>Benefits</td>
-      <td>Exp</td>
-      <td>Check</td>
+      <td>{bene.benefit}</td>
+      <td>{bene.expires}</td>
+      <td>
+        <input type="checkbox" checked={bene.used ? true : false} />
+      </td>
     </tr>
   );
+};
+const BENEFITS = {
+  card: "Amex Platinum Personal",
+  benefit: "$200 Saks Fifth Credit (2nd half)",
+  expires: "Dec 31",
+  used: true,
 };
 
 function App() {
   return (
     <>
-      <ProductTable />
+      <ProductTable product={BENEFITS} />
     </>
   );
 }
