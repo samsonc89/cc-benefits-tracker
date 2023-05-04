@@ -8,9 +8,15 @@ const BenefitsTable = ({ benefits }) => {
 const CreditCard = ({ benefits }) => {
   let benefitRows = [];
 
+  {
+    /* Go through each of the benefits and spit out the 
+  benefit, exp and used checkmark
+*/
+  }
   benefits.benefits.forEach((benefit) => {
     benefitRows.push(<Benefit benefit={benefit} key={benefit.id} />);
   });
+
   return (
     <table>
       <thead>
@@ -24,9 +30,6 @@ const CreditCard = ({ benefits }) => {
         </tr>
       </thead>
 
-      {/* Go through each of the benefits and spit out then 
-      benefit, exp and used checkmark
-    */}
       <tbody>{benefitRows}</tbody>
     </table>
   );
