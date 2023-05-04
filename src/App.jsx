@@ -1,4 +1,7 @@
-const ProductTable = ({ product }) => {
+/* eslint-disable react/prop-types */
+const BenefitsTable = ({ benefits }) => {
+  let rows = [];
+
   return (
     <table>
       <thead>
@@ -9,19 +12,19 @@ const ProductTable = ({ product }) => {
         </tr>
       </thead>
       <tbody>
-        <Benefit bene={product} />
+        <Benefit benefit={benefits} />
       </tbody>
     </table>
   );
 };
 
-const Benefit = ({ bene }) => {
+const Benefit = ({ benefit }) => {
   return (
     <tr>
-      <td>{bene.benefit}</td>
-      <td>{bene.expires}</td>
+      <td>{benefit.benefit}</td>
+      <td>{benefit.expires}</td>
       <td>
-        <input type="checkbox" checked={bene.used ? true : false} />
+        <input type="checkbox" checked={benefit.used ? true : false} readOnly />
       </td>
     </tr>
   );
@@ -30,13 +33,13 @@ const BENEFITS = {
   card: "Amex Platinum Personal",
   benefit: "$200 Saks Fifth Credit (2nd half)",
   expires: "Dec 31",
-  used: true,
+  used: false,
 };
 
 function App() {
   return (
     <>
-      <ProductTable product={BENEFITS} />
+      <BenefitsTable benefits={BENEFITS} />
     </>
   );
 }
