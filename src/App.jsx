@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import data from "./data.json";
+
 const BenefitsTable = ({ cards }) => {
   let userCards = [];
 
@@ -51,44 +53,7 @@ const Benefit = ({ benefit }) => {
     </tr>
   );
 };
-const BENEFITS = [
-  {
-    id: 100,
-    name: "Amex Platinum Personal",
-    benefits: [
-      {
-        id: 1000,
-        benefit: "$200 Saks Fifth Credit (first half)",
-        expires: "May 31",
-        used: true,
-      },
-      {
-        id: 1001,
-        benefit: "$200 Saks Fifth Credit (2nd half)",
-        expires: "Dec 31",
-        used: false,
-      },
-    ],
-  },
-  {
-    id: 200,
-    name: "Chase Sapphire",
-    benefits: [
-      {
-        id: 2001,
-        benefit: "300 Travel Credit",
-        expires: "End of the year date",
-        used: false,
-      },
-      {
-        id: 2002,
-        benefit: "TSA/Global Entry",
-        expires: "End of the year date",
-        used: false,
-      },
-    ],
-  },
-];
+const BENEFITS = data;
 
 function App() {
   return (
