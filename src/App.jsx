@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import data from "./cardData.json";
+import cardData from "./cardData.json";
 
 const BenefitsTable = ({ cards }) => {
   let userCards = [];
@@ -53,7 +53,7 @@ const Benefit = ({ benefit }) => {
     </tr>
   );
 };
-const BENEFITS = data;
+const BENEFITS = cardData;
 
 function App() {
   return (
