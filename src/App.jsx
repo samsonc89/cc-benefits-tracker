@@ -46,28 +46,47 @@ const Benefit = ({ benefit }) => {
     </tr>
   );
 };
-const BENEFITS = {
-  name: "Amex Platinum Personal",
-  benefits: [
-    {
-      id: 0,
-      benefit: "$200 Saks Fifth Credit (first half)",
-      expires: "May 31",
-      used: true,
-    },
-    {
-      id: 1,
-      benefit: "$200 Saks Fifth Credit (2nd half)",
-      expires: "Dec 31",
-      used: false,
-    },
-  ],
-};
+const BENEFITS = [
+  {
+    id: 100,
+    name: "Amex Platinum Personal",
+    benefits: [
+      {
+        id: 1000,
+        benefit: "$200 Saks Fifth Credit (first half)",
+        expires: "May 31",
+        used: true,
+      },
+      {
+        id: 1001,
+        benefit: "$200 Saks Fifth Credit (2nd half)",
+        expires: "Dec 31",
+        used: false,
+      },
+    ],
+  },
+  {
+    id: 200,
+    name: "Chase Sapphire",
+    benefits: [
+      {
+        benefit: "300 Travel Credit",
+        expires: "End of the year date",
+        used: false,
+      },
+      {
+        benefit: "TSA/Global Entry",
+        expires: "End of the year date",
+        used: false,
+      },
+    ],
+  },
+];
 
 function App() {
   return (
     <>
-      <BenefitsTable benefits={BENEFITS} />
+      <BenefitsTable benefits={BENEFITS[0]} />
     </>
   );
 }
