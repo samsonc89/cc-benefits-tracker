@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
-const BenefitsTable = ({ benefits }) => {
-  let cards = [];
+const BenefitsTable = ({ cards }) => {
+  let userCards = [];
 
-  return <CreditCard benefits={benefits} />;
+  cards.forEach((card) => {
+    userCards.push(<CreditCard benefits={card} key={card.id} />);
+  });
+  return <div>{userCards}</div>;
+  // return;
+  // <CreditCard benefits={benefits} />;
 };
 
 const CreditCard = ({ benefits }) => {
@@ -86,7 +91,7 @@ const BENEFITS = [
 function App() {
   return (
     <>
-      <BenefitsTable benefits={BENEFITS[0]} />
+      <BenefitsTable cards={BENEFITS} />
     </>
   );
 }
