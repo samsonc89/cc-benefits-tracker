@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import data from "./data.json";
+import data from "./cardData.json";
 
 const BenefitsTable = ({ cards }) => {
   let userCards = [];
