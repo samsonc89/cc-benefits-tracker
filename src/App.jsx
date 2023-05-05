@@ -40,10 +40,6 @@ const User = () => {
     //change the card id to match the username
     foundCard[0].id = userData.id + foundCard[0].id;
 
-    //set a new id for the card so that it matches the user
-
-    //part of the problem is that it's still referencing the old obect.
-
     //add that card to the userData
     setUserData({ ...userData, cards: userData.cards.concat(foundCard) });
   }
