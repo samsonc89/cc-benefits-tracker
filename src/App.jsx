@@ -2,6 +2,7 @@ import CreditCard from "./components/CreditCard";
 
 /* eslint-disable react/prop-types */
 import cardData from "./cardData.json";
+import { useState } from "react";
 
 const BenefitsTable = ({ cards }) => {
   let userCards = [];
@@ -15,21 +16,37 @@ const BenefitsTable = ({ cards }) => {
 };
 
 const BENEFITS = cardData;
-const userData = {
-  id: "user1",
-  cards: [],
-};
-
-function showData(e) {
-  e.preventDefault(), console.log(userData);
-}
 
 const User = () => {
+  const [userData, setUserData] = useState({
+    id: "user1",
+    cards: [],
+  });
+
+  function showData(e) {
+    e.preventDefault();
+    console.log(userData);
+  }
+  const [selectedCard, setSelectedCard] = useState(BENEFITS[0].id);
+  function addCard(e) {
+    let foundCard = BENEFITS.filter((ob) => ob.id == selectedCard);
+    e.preventDefault();
+    setUserData({ ...userData, cards: userData.cards.concat(foundCard) });
+  }
+
   return (
     <div>
       <h2>User name</h2>
-      <p>User data</p>
+      <select
+        defaultValue={BENEFITS[0].id}
+        onChange={(e) => setSelectedCard(e.target.value)}
+      >
+        <option value={BENEFITS[0].id}>{BENEFITS[0].name}</option>
+        <option value={BENEFITS[1].id}>{BENEFITS[1].name}</option>
+      </select>
+      <button onClick={addCard}>Add Card</button>
       <button onClick={showData}>Show</button>
+      <BenefitsTable cards={userData.cards} />
     </div>
   );
 };
@@ -38,7 +55,6 @@ function App() {
   return (
     <>
       <User />
-      <BenefitsTable cards={BENEFITS} />
     </>
   );
 }
