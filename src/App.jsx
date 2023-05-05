@@ -25,12 +25,24 @@ const User = () => {
 
   function showData(e) {
     e.preventDefault();
+    console.log(BENEFITS);
     console.log(userData);
   }
   const [selectedCard, setSelectedCard] = useState(BENEFITS[0].id);
+
   function addCard(e) {
+    //go through the list of cards and find the one that matches the id
     let foundCard = BENEFITS.filter((ob) => ob.id == selectedCard);
     e.preventDefault();
+
+    //make a copy of that card
+
+    //set a new id for the card so that it matches the user
+
+    //part of the problem is that it's still referencing the old obect.
+    foundCard[0].id = "200000";
+
+    //add that card to the userData
     setUserData({ ...userData, cards: userData.cards.concat(foundCard) });
   }
 
