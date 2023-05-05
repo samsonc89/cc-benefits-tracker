@@ -18,6 +18,7 @@ const BENEFITS = cardData;
 const User = () => {
   const [userData, setUserData] = useState({
     id: "user1",
+    username: "Test User 1",
     cards: [],
   });
 
@@ -44,7 +45,7 @@ const User = () => {
 
   return (
     <div>
-      <h2>User name</h2>
+      <h2>{userData.username}</h2>
       <select
         defaultValue={BENEFITS[0].id}
         onChange={(e) => setSelectedCard(e.target.value)}
