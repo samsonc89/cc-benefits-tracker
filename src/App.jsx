@@ -11,8 +11,6 @@ const BenefitsTable = ({ cards }) => {
     userCards.push(<CreditCard benefits={card} key={card.id} />);
   });
   return <div>{userCards}</div>;
-  // return;
-  // <CreditCard benefits={benefits} />;
 };
 
 const BENEFITS = cardData;
