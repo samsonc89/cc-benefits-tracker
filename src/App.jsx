@@ -15,12 +15,21 @@ const BenefitsTable = ({ cards }) => {
 };
 
 const BENEFITS = cardData;
+const userData = {
+  id: "user1",
+  cards: [],
+};
+
+function showData(e) {
+  e.preventDefault(), console.log(userData);
+}
 
 const User = () => {
   return (
     <div>
       <h2>User name</h2>
       <p>User data</p>
+      <button onClick={showData}>Show</button>
     </div>
   );
 };
