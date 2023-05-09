@@ -31,16 +31,17 @@ const User = () => {
 
   function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
-    let foundCard = BENEFITS.filter((ob) => ob.id == selectedCard).map(
-      (card) => ({ ...card })
-    );
+    let foundCard = BENEFITS.filter((ob) => ob.id == selectedCard);
+    // .map((card) => ({ ...card }));
     e.preventDefault();
 
+    let newCard = foundCard.map((card) => ({ ...card }));
+    console.log(newCard);
     //change the card id to match the username
-    foundCard[0].id = userData.id + foundCard[0].id;
+    newCard[0].id = userData.id + foundCard[0].id;
 
     //add that card to the userData
-    setUserData({ ...userData, cards: userData.cards.concat(foundCard) });
+    setUserData({ ...userData, cards: userData.cards.concat(newCard) });
   }
 
   return (
