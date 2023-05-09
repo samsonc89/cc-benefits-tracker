@@ -27,6 +27,7 @@ const User = () => {
     console.log(BENEFITS);
     console.log(userData);
   }
+
   const [selectedCard, setSelectedCard] = useState(BENEFITS[0].id);
 
   function addCard(e) {
@@ -35,13 +36,18 @@ const User = () => {
     // .map((card) => ({ ...card }));
     e.preventDefault();
 
-    let newCard = foundCard.map((card) => ({ ...card }));
-    console.log(newCard);
-    //change the card id to match the username
-    newCard[0].id = userData.id + foundCard[0].id;
+    //check if user already has selected card
+    if (userData.cards.some((card) => card.name === foundCard[0].name)) {
+      alert("Card already added");
+    } else {
+      let newCard = foundCard.map((card) => ({ ...card }));
+      console.log(newCard);
+      //change the card id to match the username
+      newCard[0].id = userData.id + foundCard[0].id;
 
-    //add that card to the userData
-    setUserData({ ...userData, cards: userData.cards.concat(newCard) });
+      //add that card to the userData
+      setUserData({ ...userData, cards: userData.cards.concat(newCard) });
+    }
   }
 
   return (
