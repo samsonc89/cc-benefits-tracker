@@ -1,17 +1,8 @@
-import CreditCard from "./components/CreditCard";
+import BenefitsTable from "./BenefitsTable";
 
 /* eslint-disable react/prop-types */
 import cardData from "./cardData.json";
 import { useState } from "react";
-
-const BenefitsTable = ({ cards }) => {
-  let userCards = [];
-
-  cards.forEach((card) => {
-    userCards.push(<CreditCard benefits={card} key={card.id} />);
-  });
-  return <div>{userCards}</div>;
-};
 
 const BENEFITS = cardData;
 
