@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import CreditCard from "./components/CreditCard";
+import CreditCard from "./CreditCard";
 
 const BenefitsTable = ({ cards }) => {
   let userCards = [];

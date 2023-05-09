@@ -1,4 +1,4 @@
-import BenefitsTable from "./BenefitsTable";
+import BenefitsTable from "./components/BenefitsTable";
 
 /* eslint-disable react/prop-types */
 import cardData from "./cardData.json";
