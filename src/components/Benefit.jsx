@@ -3,17 +3,17 @@ import "./benefit.css";
 
 /* eslint-disable react/prop-types */
 const Benefit = ({ benefit }) => {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(false);
 
   function finishBenefit() {
-    if (status === "") {
-      setStatus("done");
+    if (status === false) {
+      setStatus(true);
     } else {
-      setStatus("");
+      setStatus(false);
     }
   }
   return (
-    <tr className={status}>
+    <tr className={status ? "done" : ""}>
       <td>{benefit.benefit}</td>
       <td>{benefit.expires}</td>
       <td>
