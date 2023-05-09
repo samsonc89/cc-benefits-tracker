@@ -17,7 +17,7 @@ const Benefit = ({ benefit }) => {
       <td>{benefit.benefit}</td>
       <td>{benefit.expires}</td>
       <td>
-        <input type="checkbox" onClick={() => finishBenefit()} />
+        <input type="checkbox" onClick={finishBenefit} />
       </td>
     </tr>
   );
