@@ -65,7 +65,13 @@ const User = () => {
   }
 
   function deleteCard(targetID) {
-    console.log(targetID);
+    let foundCard = userData.cards.find((card) => card.id === targetID);
+    if (foundCard) {
+      setUserData({
+        ...userData,
+        cards: userData.cards.filter((card) => card.id !== targetID),
+      });
+    }
   }
 
   return (
