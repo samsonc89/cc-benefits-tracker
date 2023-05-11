@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Benefit from "./Benefit";
 
-const CreditCard = ({ benefits }) => {
+const CreditCard = ({ benefits, delBtn }) => {
   let benefitRows = [];
 
   {
@@ -19,7 +19,7 @@ const CreditCard = ({ benefits }) => {
         <tr>
           <th colSpan={2}>{benefits.name}</th>
           <th>
-            <button>Delete Card</button>
+            <button onClick={() => delBtn(benefits.id)}>Delete Card</button>
           </th>
         </tr>
         <tr>

@@ -39,7 +39,6 @@ const User = () => {
 
   function showData(e) {
     e.preventDefault();
-    console.log(BENEFITS);
     console.log(userData);
   }
 
@@ -65,6 +64,10 @@ const User = () => {
     }
   }
 
+  function deleteCard(targetID) {
+    console.log(targetID);
+  }
+
   return (
     <div>
       <h2>{userData.username}</h2>
@@ -77,7 +80,7 @@ const User = () => {
       </select>
       <button onClick={addCard}>Add Card</button>
       <button onClick={showData}>Show</button>
-      <BenefitsTable cards={userData.cards} />
+      <BenefitsTable cards={userData.cards} delFunction={deleteCard} />
     </div>
   );
 };
