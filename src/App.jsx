@@ -5,6 +5,7 @@ import cardData from "./cardData.json";
 import { useEffect, useState } from "react";
 
 const BENEFITS = cardData;
+// eslint-disable-next-line no-unused-vars
 
 const User = () => {
   const [userData, setUserData] = useState(
