@@ -17,7 +17,10 @@ const CreditCard = ({ benefits }) => {
     <table>
       <thead>
         <tr>
-          <th colSpan={3}>{benefits.name}</th>
+          <th colSpan={2}>{benefits.name}</th>
+          <th>
+            <button>Delete Card</button>
+          </th>
         </tr>
         <tr>
           <th>Benefit</th>
