@@ -2,18 +2,41 @@ import BenefitsTable from "./components/BenefitsTable";
 
 /* eslint-disable react/prop-types */
 import cardData from "./cardData.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const BENEFITS = cardData;
 // eslint-disable-next-line no-unused-vars
 const allUsers = [{}];
 
 const User = () => {
-  const [userData, setUserData] = useState({
-    id: "user1",
-    username: "Test User 1",
-    cards: [],
-  });
+  const [userData, setUserData] = useState(
+    // {
+    //   id: "user1",
+    //   username: "Test User 1",
+    //   cards: [],
+    // }
+    () => {
+      const parsedUserData = JSON.parse(localStorage.getItem("userData"));
+      return (
+        parsedUserData || {
+          id: "user1",
+          username: "Test User 1",
+          cards: [],
+        }
+      );
+    }
+  );
+
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }, [userData]);
+
+  useEffect(() => {
+    const savedUserData = JSON.parse(localStorage.getItem("userData"));
+    if (savedUserData) {
+      setUserData(userData);
+    }
+  }, [userData]);
 
   function showData(e) {
     e.preventDefault();
