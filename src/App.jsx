@@ -1,30 +1,22 @@
-import BenefitsTable from "./components/BenefitsTable";
+import CreditCard from "./components/CreditCard";
 
-/* eslint-disable react/prop-types */
 import cardData from "./cardData.json";
 import { useEffect, useState } from "react";
+import { useImmer } from "use-immer";
 
 const BENEFITS = cardData;
-// eslint-disable-next-line no-unused-vars
 
 const User = () => {
-  const [userData, setUserData] = useState(
-    // {
-    //   id: "user1",
-    //   username: "Test User 1",
-    //   cards: [],
-    // }
-    () => {
-      const parsedUserData = JSON.parse(localStorage.getItem("userData"));
-      return (
-        parsedUserData || {
-          id: "user1",
-          username: "Test User 1",
-          cards: [],
-        }
-      );
-    }
-  );
+  const [userData, setUserData] = useImmer(() => {
+    const parsedUserData = JSON.parse(localStorage.getItem("userData"));
+    return (
+      parsedUserData || {
+        id: "user1",
+        username: "Test User 1",
+        cards: [],
+      }
+    );
+  });
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -40,7 +32,21 @@ const User = () => {
   function showData(e) {
     e.preventDefault();
     console.log(userData);
+    console.log(BENEFITS);
   }
+
+  const handleToggle = (benefitId) => {
+    setUserData((draft) => {
+      //   //find which card, then which benefit
+      const foundObj = draft.cards.find((card) =>
+        card.benefits.some((benefit) => benefit.id === benefitId)
+      );
+      let foundBenefit = foundObj.benefits.find(
+        (benefit) => benefit.id === benefitId
+      );
+      foundBenefit.used = !foundBenefit.used;
+    });
+  };
 
   const [selectedCard, setSelectedCard] = useState(BENEFITS[0].id);
 
@@ -56,8 +62,6 @@ const User = () => {
     } else {
       let newCard = foundCard.map((card) => ({ ...card }));
       console.log(newCard);
-      //change the card id to match the username
-      newCard[0].id = userData.id + foundCard[0].id;
 
       //add that card to the userData
       setUserData({ ...userData, cards: userData.cards.concat(newCard) });
@@ -86,7 +90,18 @@ const User = () => {
       </select>
       <button onClick={addCard}>Add Card</button>
       <button onClick={showData}>Show</button>
-      <BenefitsTable cards={userData.cards} delFunction={deleteCard} />
+      <div>
+        {userData.cards.map((card) => {
+          return (
+            <CreditCard
+              cardData={card}
+              key={card.id}
+              delBtn={deleteCard}
+              onCheck={handleToggle}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

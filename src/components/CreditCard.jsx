@@ -1,25 +1,22 @@
 /* eslint-disable react/prop-types */
-import Benefit from "./Benefit";
 
-const CreditCard = ({ benefits, delBtn }) => {
-  let benefitRows = [];
+import "./benefit.css";
 
+const CreditCard = ({ cardData, delBtn, onCheck }) => {
+  // const [completed, setCompleted] = useState([]);
   {
     /* Go through each of the benefits and spit out the 
     benefit, exp and used checkmark
   */
   }
-  benefits.benefits.forEach((benefit) => {
-    benefitRows.push(<Benefit benefit={benefit} key={benefit.id} />);
-  });
 
   return (
     <table>
       <thead>
         <tr>
-          <th colSpan={2}>{benefits.name}</th>
+          <th colSpan={2}>{cardData.name}</th>
           <th>
-            <button onClick={() => delBtn(benefits.id)}>Delete Card</button>
+            <button onClick={() => delBtn(cardData.id)}>Delete Card</button>
           </th>
         </tr>
         <tr>
@@ -29,7 +26,22 @@ const CreditCard = ({ benefits, delBtn }) => {
         </tr>
       </thead>
 
-      <tbody>{benefitRows}</tbody>
+      {/* <tbody>{benefitRows}</tbody> */}
+      <tbody>
+        {cardData.benefits.map((benefit) => (
+          <tr key={benefit.id} className={benefit.used ? "done" : ""}>
+            <td>{benefit.benefit}</td>
+            <td>{benefit.expires}</td>
+            <td>
+              <input
+                type="checkbox"
+                checked={benefit.used}
+                onChange={() => onCheck(benefit.id)}
+              />
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };
