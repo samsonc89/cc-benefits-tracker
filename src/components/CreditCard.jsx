@@ -3,13 +3,6 @@
 import "./benefit.css";
 
 const CreditCard = ({ cardData, delBtn, onCheck }) => {
-  // const [completed, setCompleted] = useState([]);
-  {
-    /* Go through each of the benefits and spit out the 
-    benefit, exp and used checkmark
-  */
-  }
-
   return (
     <table>
       <thead>
