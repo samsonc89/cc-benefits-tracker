@@ -5,32 +5,230 @@
     "benefits": [
       {
         "id": 1000,
-        "benefit": "$200 Saks Fifth Credit (first half)",
+        "benefit": "$50 Saks Fifth Credit (first half)",
         "expires": "May 31",
         "used": false
       },
       {
         "id": 1001,
-        "benefit": "$200 Saks Fifth Credit (2nd half)",
+        "benefit": "$50 Saks Fifth Credit (2nd half)",
         "expires": "Dec 31",
+        "used": false
+      },
+      {
+        "id": 1002,
+        "benefit": "$200 Airline incidentals",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1003,
+        "benefit": "$15m/mo Uber credit",
+        "expires": "Monthly",
+        "used": false
+      },
+      {
+        "id": 1004,
+        "benefit": "$20/mo Digital Entertainment Credit",
+        "expires": "Monthly",
+        "used": false
+      },
+      {
+        "id": 1005,
+        "benefit": "TSA/Global Entry fee credit",
+        "expires": "Once every 4 years",
+        "used": false
+      },
+      {
+        "id": 1006,
+        "benefit": "$200 Fine Hotels + Resorts/The Hotel Collection Credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1007,
+        "benefit": "$300 Equinox credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1008,
+        "benefit": "$300 SoulCycle At-Home Bike Credit",
+        "expires": "Once",
+        "used": false
+      },
+      {
+        "id": 1009,
+        "benefit": "$189 CLEAR Credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1010,
+        "benefit": "12.95/mo Walmart+ Membership Credit",
+        "expires": "Monthly",
+        "used": false
+      },
+      {
+        "id": 1011,
+        "benefit": "$800 Cell phone protection ($50 deductible)",
+        "expires": "12/31",
         "used": false
       }
     ]
   },
   {
     "id": 200,
-    "name": "Chase Sapphire",
+    "name": "Chase Sapphire Reserve",
     "benefits": [
       {
+        "id": 2000,
+        "benefit": "$300 Travel Credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
         "id": 2001,
-        "benefit": "300 Travel Credit",
-        "expires": "End of the year date",
+        "benefit": "TSA/Global Entry",
+        "expires": "once every 4 years",
         "used": false
       },
       {
         "id": 2002,
-        "benefit": "TSA/Global Entry",
-        "expires": "End of the year date",
+        "benefit": "One year free DashPass membership",
+        "expires": "12/31/2024",
+        "used": false
+      },
+      {
+        "id": 2003,
+        "benefit": "$5/mo DoorDash credit (can roll over twice)",
+        "expires": "6/31",
+        "used": false
+      },
+      {
+        "id": 2004,
+        "benefit": "2 year Lyft Pink All Access",
+        "expires": "12/31/2024",
+        "used": false
+      },
+      {
+        "id": 2005,
+        "benefit": "One year free Instacart+ membership",
+        "expires": "7/31/2024",
+        "used": ""
+      },
+      {
+        "id": 2006,
+        "benefit": "$15 a month Instacart credit",
+        "expires": "Monthly",
+        "used": ""
+      }
+    ]
+  },
+  {
+    "id": 300,
+    "name": "Amex Platinum Business",
+    "benefits": [
+      {
+        "id": 3000,
+        "benefit": "$200 Airline incidentals",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3001,
+        "benefit": "TSA/Global Entry fee credit",
+        "expires": "Once every 4 years",
+        "used": false
+      },
+      {
+        "id": 3002,
+        "benefit": "$189 CLEAR Credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3003,
+        "benefit": "$200 Dell Credit (1st half)",
+        "expires": "6/31",
+        "used": false
+      },
+      {
+        "id": 3004,
+        "benefit": "$200 Dell Credit (2nd half)",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3005,
+        "benefit": "$10/mo wireless credit",
+        "expires": "Monthly",
+        "used": false
+      },
+      {
+        "id": 3006,
+        "benefit": "$150 Adobe creative cloud credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3007,
+        "benefit": "$90/quarter Indeed credit",
+        "expires": "",
+        "used": false
+      },
+      {
+        "id": 3008,
+        "benefit": "$800 Cell phone protection ($50 deductible)",
+        "expires": "12/31",
+        "used": false
+      }
+    ]
+  },
+  {
+    "id": 400,
+    "name": "Capital One Venture X",
+    "benefits": [
+      {
+        "id": 4000,
+        "benefit": "$300 Travel Credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 4001,
+        "benefit": "TSA/Global Entry fee credit",
+        "expires": "Once every 4 years",
+        "used": false
+      }
+    ]
+  },
+  {
+    "id": 500,
+    "name": "Chase Sapphire Preferred",
+    "benefits": [
+      {
+        "id": 5000,
+        "benefit": "$50 Hotel credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 5001,
+        "benefit": "One year free DashPass membership",
+        "expires": "12/31/2024",
+        "used": false
+      },
+      {
+        "id": 5002,
+        "benefit": "6 months free Instacart+ membership",
+        "expires": "7/31/2024",
+        "used": false
+      },
+      {
+        "id": 5003,
+        "benefit": "$15 a month Instacart credit",
+        "expires": "Monthly",
         "used": false
       }
     ]
