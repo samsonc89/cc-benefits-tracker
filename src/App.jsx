@@ -61,7 +61,6 @@ const User = () => {
       alert("Card already added");
     } else {
       let newCard = foundCard.map((card) => ({ ...card }));
-      console.log(newCard);
 
       //add that card to the userData
       setUserData({ ...userData, cards: userData.cards.concat(newCard) });
@@ -85,8 +84,16 @@ const User = () => {
         defaultValue={BENEFITS[0].id}
         onChange={(e) => setSelectedCard(e.target.value)}
       >
-        <option value={BENEFITS[0].id}>{BENEFITS[0].name}</option>
+        {BENEFITS.map((card) => {
+          return (
+            <option key={card.id} value={card.id}>
+              {card.name}
+            </option>
+          );
+        })}
+        {/* <option value={BENEFITS[0].id}>{BENEFITS[0].name}</option>
         <option value={BENEFITS[1].id}>{BENEFITS[1].name}</option>
+        <option value={BENEFITS[2].id}>{BENEFITS[2].name}</option> */}
       </select>
       <button onClick={addCard}>Add Card</button>
       <button onClick={showData}>Show</button>
