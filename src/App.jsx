@@ -91,9 +91,6 @@ const User = () => {
             </option>
           );
         })}
-        {/* <option value={BENEFITS[0].id}>{BENEFITS[0].name}</option>
-        <option value={BENEFITS[1].id}>{BENEFITS[1].name}</option>
-        <option value={BENEFITS[2].id}>{BENEFITS[2].name}</option> */}
       </select>
       <button onClick={addCard}>Add Card</button>
       <button onClick={showData}>Show</button>
