@@ -27,7 +27,7 @@ const User = () => {
     if (savedUserData) {
       setUserData(userData);
     }
-  }, [userData]);
+  }, [setUserData, userData]);
 
   function showData(e) {
     e.preventDefault();
@@ -79,32 +79,41 @@ const User = () => {
 
   return (
     <div>
-      <h2>{userData.username}</h2>
-      <select
-        defaultValue={BENEFITS[0].id}
-        onChange={(e) => setSelectedCard(e.target.value)}
-      >
-        {BENEFITS.map((card) => {
-          return (
-            <option key={card.id} value={card.id}>
-              {card.name}
-            </option>
-          );
-        })}
-      </select>
-      <button onClick={addCard}>Add Card</button>
-      <button onClick={showData}>Show</button>
       <div>
-        {userData.cards.map((card) => {
-          return (
-            <CreditCard
-              cardData={card}
-              key={card.id}
-              delBtn={deleteCard}
-              onCheck={handleToggle}
-            />
-          );
-        })}
+        <h2>{userData.username}</h2>
+        <select
+          defaultValue={BENEFITS[0].id}
+          onChange={(e) => setSelectedCard(e.target.value)}
+        >
+          {BENEFITS.map((card) => {
+            return (
+              <option key={card.id} value={card.id}>
+                {card.name}
+              </option>
+            );
+          })}
+        </select>
+        <button onClick={addCard}>Add Card</button>
+        <button onClick={showData}>Show</button>
+      </div>
+      <div className="dataContent">
+        <div className="cardsList">
+          {userData.cards.map((card) => {
+            return <div key={card.id}>{card.name}</div>;
+          })}
+        </div>
+        <div>
+          {userData.cards.map((card) => {
+            return (
+              <CreditCard
+                cardData={card}
+                key={card.id}
+                delBtn={deleteCard}
+                onCheck={handleToggle}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
