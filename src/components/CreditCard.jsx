@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import "./benefit.css";
+import "./app.css";
 
 const CreditCard = ({ cardData, delBtn, onCheck }) => {
   return (
