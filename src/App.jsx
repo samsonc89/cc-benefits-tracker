@@ -99,7 +99,11 @@ const User = () => {
       <div className="content--container">
         <div className="content--cardsList">
           {userData.cards.map((card) => {
-            return <div key={card.id}>{card.name}</div>;
+            return (
+              <div key={card.id} className="content--card">
+                {card.name}
+              </div>
+            );
           })}
         </div>
         <div className="content--benefits">

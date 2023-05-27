@@ -9,6 +9,17 @@
   gap: 5vw;
 }
 
+.content--cardsList {
+  width: 30%;
+}
+
+.content--card {
+  height: 50px;
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 2vh;
+}
+
 .content--benefits {
   height: 75vh;
   overflow: scroll;
