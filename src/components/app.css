@@ -1,3 +1,12 @@
 .done {
   color: red;
 }
+
+.content--container {
+  display: flex;
+}
+
+.content--benefits {
+  max-height: 80vh;
+  overflow: scroll;
+}
