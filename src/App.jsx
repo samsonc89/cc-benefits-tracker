@@ -96,13 +96,13 @@ const User = () => {
         <button onClick={addCard}>Add Card</button>
         <button onClick={showData}>Show</button>
       </div>
-      <div className="dataContent">
-        <div className="cardsList">
+      <div className="content--container">
+        <div className="content--cardsList">
           {userData.cards.map((card) => {
             return <div key={card.id}>{card.name}</div>;
           })}
         </div>
-        <div>
+        <div className="content--benefits">
           {userData.cards.map((card) => {
             return (
               <CreditCard
