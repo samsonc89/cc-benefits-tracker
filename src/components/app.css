@@ -4,9 +4,12 @@
 
 .content--container {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 5vw;
 }
 
 .content--benefits {
-  max-height: 80vh;
+  height: 75vh;
   overflow: scroll;
 }
