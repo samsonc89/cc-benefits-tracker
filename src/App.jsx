@@ -31,6 +31,8 @@ const User = () => {
 
   useEffect(() => {
     //go through the current card that updated.
+
+    console.log(userData.cards[updatedObj]);
     console.log(checkIfAllUsed(userData.cards[updatedObj]));
     //check if every benefit is used
     //if every benefit is used, set allUsed to true
@@ -93,6 +95,7 @@ const User = () => {
         cards: userData.cards.filter((card) => card.id !== targetID),
       });
     }
+    setSelectedCard(0);
   }
 
   function handleCardClick(id) {
