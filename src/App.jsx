@@ -48,11 +48,12 @@ const User = () => {
     });
   };
 
-  const [selectedCard, setSelectedCard] = useState(BENEFITS[0].id);
+  const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
+  const [selectedCard, setSelectedCard] = useState(0);
 
   function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
-    let foundCard = BENEFITS.filter((ob) => ob.id == selectedCard);
+    let foundCard = BENEFITS.filter((ob) => ob.id == cardSelection);
     // .map((card) => ({ ...card }));
     e.preventDefault();
 
@@ -77,13 +78,17 @@ const User = () => {
     }
   }
 
+  function handleCardClick(id) {
+    setSelectedCard(userData.cards.findIndex((card) => card.id === id));
+  }
+
   return (
     <div>
       <div>
         <h2>{userData.username}</h2>
         <select
           defaultValue={BENEFITS[0].id}
-          onChange={(e) => setSelectedCard(e.target.value)}
+          onChange={(e) => setCardSelection(e.target.value)}
         >
           {BENEFITS.map((card) => {
             return (
@@ -100,7 +105,11 @@ const User = () => {
         <div className="content--cardsList">
           {userData.cards.map((card) => {
             return (
-              <div key={card.id} className="content--card">
+              <div
+                key={card.id}
+                className="content--card"
+                onClick={() => handleCardClick(card.id)}
+              >
                 {card.name}
               </div>
             );
@@ -108,8 +117,8 @@ const User = () => {
         </div>
         <div className="content--benefits">
           <CreditCard
-            cardData={userData.cards[0]}
-            key={userData.cards[0].id}
+            cardData={userData.cards[selectedCard]}
+            key={userData.cards[selectedCard].id}
             delBtn={deleteCard}
             onCheck={handleToggle}
           />
