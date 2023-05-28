@@ -2,6 +2,7 @@
   {
     "id": 100,
     "name": "Amex Platinum Personal",
+    "allUsed": false,
     "benefits": [
       {
         "id": 1000,
@@ -80,6 +81,7 @@
   {
     "id": 200,
     "name": "Chase Sapphire Reserve",
+    "allUsed": false,
     "benefits": [
       {
         "id": 2000,
@@ -128,6 +130,7 @@
   {
     "id": 300,
     "name": "Amex Platinum Business",
+    "allUsed": false,
     "benefits": [
       {
         "id": 3000,
@@ -188,6 +191,7 @@
   {
     "id": 400,
     "name": "Capital One Venture X",
+    "allUsed": false,
     "benefits": [
       {
         "id": 4000,
@@ -206,6 +210,7 @@
   {
     "id": 500,
     "name": "Chase Sapphire Preferred",
+    "allUsed": false,
     "benefits": [
       {
         "id": 5000,

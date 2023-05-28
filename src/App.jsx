@@ -29,19 +29,36 @@ const User = () => {
     }
   }, [setUserData, userData]);
 
+  useEffect(() => {
+    //go through the current card that updated.
+    console.log(checkIfAllUsed(userData.cards[updatedObj]));
+    //check if every benefit is used
+    //if every benefit is used, set allUsed to true
+  }, [userData.cards]);
+
   function showData(e) {
     e.preventDefault();
     console.log(userData);
     console.log(BENEFITS);
   }
 
+  const [updatedObj, setUpdatedObj] = useState(0);
+
+  function checkIfAllUsed(data) {
+    return data.benefits.every((bene) => bene.used === true);
+  }
+
   const handleToggle = (benefitId) => {
+    let foundObj = userData.cards.findIndex((card) =>
+      card.benefits.some((benefit) => benefit.id === benefitId)
+    );
+    setUpdatedObj(foundObj);
     setUserData((draft) => {
       //   //find which card, then which benefit
-      const foundObj = draft.cards.find((card) =>
+      const foundDraftObj = draft.cards.find((card) =>
         card.benefits.some((benefit) => benefit.id === benefitId)
       );
-      let foundBenefit = foundObj.benefits.find(
+      let foundBenefit = foundDraftObj.benefits.find(
         (benefit) => benefit.id === benefitId
       );
       foundBenefit.used = !foundBenefit.used;
