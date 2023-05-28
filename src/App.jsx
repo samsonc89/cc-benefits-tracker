@@ -107,7 +107,14 @@ const User = () => {
           })}
         </div>
         <div className="content--benefits">
-          {userData.cards.map((card) => {
+          <CreditCard
+            cardData={userData.cards[0]}
+            key={userData.cards[0].id}
+            delBtn={deleteCard}
+            onCheck={handleToggle}
+          />
+
+          {/* {userData.cards.map((card) => {
             return (
               <CreditCard
                 cardData={card}
@@ -116,7 +123,7 @@ const User = () => {
                 onCheck={handleToggle}
               />
             );
-          })}
+          })} */}
         </div>
       </div>
     </div>
