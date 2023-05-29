@@ -20,6 +20,7 @@ const User = () => {
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
+    setSelectedCard(userData.cards[selectedCard] || userData.cards[0]);
   }, [userData]);
 
   useEffect(() => {
@@ -100,7 +101,6 @@ const User = () => {
         cards: userData.cards.filter((card) => card.id !== targetID),
       });
     }
-    setSelectedCard(0);
   }
 
   function handleCardClick(card) {
@@ -146,12 +146,16 @@ const User = () => {
           })}
         </div>
         <div className="content--benefits">
-          <CreditCard
-            cardData={selectedCard}
-            key={selectedCard.id}
-            delBtn={deleteCard}
-            onCheck={handleToggle}
-          />
+          {userData.cards.length > 0 ? (
+            <CreditCard
+              cardData={selectedCard}
+              key={selectedCard.id}
+              delBtn={deleteCard}
+              onCheck={handleToggle}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
