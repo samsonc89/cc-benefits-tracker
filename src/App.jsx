@@ -94,8 +94,6 @@ const User = () => {
 
   function handleCardClick(card) {
     setSelectedCard(card);
-
-    console.log(selectedCard);
   }
 
   return (
