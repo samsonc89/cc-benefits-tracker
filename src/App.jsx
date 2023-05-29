@@ -21,7 +21,7 @@ const User = () => {
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
     //when there are changes to the user object, select either the selected card or the first card
-    setSelectedCard(userData.cards[selectedCard] || userData.cards[0]);
+    // setSelectedCard(userData.cards[selectedCard] || userData.cards[0]);
   }, [userData]);
 
   useEffect(() => {
@@ -76,6 +76,7 @@ const User = () => {
     } else {
       let newCard = foundCard.map((card) => ({ ...card }));
 
+      setSelectedCard(newCard[0]);
       //add that card to the userData
       setUserData({ ...userData, cards: userData.cards.concat(newCard) });
     }
