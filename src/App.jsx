@@ -136,11 +136,9 @@ const User = () => {
                 key={card.id}
                 className={`content--card  ${
                   card === selectedCard ? "card--selected" : ""
-                  // card.id === selectedCard ? "card--selected" : ""
                 }`}
                 id={card.id}
                 onClick={() => handleCardClick(card)}
-                // onClick={() => handleCardClick(card.id)}
               >
                 {card.name}
               </div>
@@ -151,24 +149,9 @@ const User = () => {
           <CreditCard
             cardData={selectedCard}
             key={selectedCard.id}
-            // cardData={userData.cards.find((card) => card.id === selectedCard)}
-            // key={
-            //   userData.cards.findIndex((card) => card.id === selectedCard).id
-            // }
             delBtn={deleteCard}
             onCheck={handleToggle}
           />
-
-          {/* {userData.cards.map((card) => {
-            return (
-              <CreditCard
-                cardData={card}
-                key={card.id}
-                delBtn={deleteCard}
-                onCheck={handleToggle}
-              />
-            );
-          })} */}
         </div>
       </div>
     </div>
