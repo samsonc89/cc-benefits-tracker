@@ -29,14 +29,17 @@ const User = () => {
     }
   }, [setUserData, userData]);
 
-  useEffect(() => {
-    //go through the current card that updated.
+  // useEffect(() => {
+  //   //go through the current card that updated.
 
-    console.log(userData.cards[updatedObj]);
-    console.log(checkIfAllUsed(userData.cards[updatedObj]));
-    //check if every benefit is used
-    //if every benefit is used, set allUsed to true
-  }, [userData.cards]);
+  //   console.log(userData.cards[updatedObj].allUsed);
+  //   if (checkIfAllUsed(userData.cards[updatedObj])) {
+  //     console.log("hey");
+  //     // draft.cards[updatedObj].allUsed != draft.cards[updatedObj].allUsed;
+  //   }
+  //   //check if every benefit is used
+  //   //if every benefit is used, set allUsed to true
+  // }, [userData.cards]);
 
   function showData(e) {
     e.preventDefault();
@@ -68,7 +71,9 @@ const User = () => {
   };
 
   const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
-  const [selectedCard, setSelectedCard] = useState(0);
+
+  const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
+  // const [selectedCard, setSelectedCard] = useState(userData.cards[0].id);
 
   function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
@@ -98,8 +103,10 @@ const User = () => {
     setSelectedCard(0);
   }
 
-  function handleCardClick(id) {
-    setSelectedCard(userData.cards.findIndex((card) => card.id === id));
+  function handleCardClick(card) {
+    setSelectedCard(card);
+    // setSelectedCard(userData.cards.findIndex((card) => card.id === id));
+    console.log(selectedCard);
   }
 
   return (
@@ -127,8 +134,13 @@ const User = () => {
             return (
               <div
                 key={card.id}
-                className="content--card"
-                onClick={() => handleCardClick(card.id)}
+                className={`content--card  ${
+                  card === selectedCard ? "card--selected" : ""
+                  // card.id === selectedCard ? "card--selected" : ""
+                }`}
+                id={card.id}
+                onClick={() => handleCardClick(card)}
+                // onClick={() => handleCardClick(card.id)}
               >
                 {card.name}
               </div>
@@ -137,8 +149,12 @@ const User = () => {
         </div>
         <div className="content--benefits">
           <CreditCard
-            cardData={userData.cards[selectedCard]}
-            key={userData.cards[selectedCard].id}
+            cardData={selectedCard}
+            key={selectedCard.id}
+            // cardData={userData.cards.find((card) => card.id === selectedCard)}
+            // key={
+            //   userData.cards.findIndex((card) => card.id === selectedCard).id
+            // }
             delBtn={deleteCard}
             onCheck={handleToggle}
           />
