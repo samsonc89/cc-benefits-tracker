@@ -20,6 +20,7 @@ const User = () => {
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
+    //when there are changes to the user object, select either the selected card or the first card
     setSelectedCard(userData.cards[selectedCard] || userData.cards[0]);
   }, [userData]);
 
@@ -29,18 +30,6 @@ const User = () => {
       setUserData(userData);
     }
   }, [setUserData, userData]);
-
-  // useEffect(() => {
-  //   //go through the current card that updated.
-
-  //   console.log(userData.cards[updatedObj].allUsed);
-  //   if (checkIfAllUsed(userData.cards[updatedObj])) {
-  //     console.log("hey");
-  //     // draft.cards[updatedObj].allUsed != draft.cards[updatedObj].allUsed;
-  //   }
-  //   //check if every benefit is used
-  //   //if every benefit is used, set allUsed to true
-  // }, [userData.cards]);
 
   function showData(e) {
     e.preventDefault();
@@ -74,7 +63,6 @@ const User = () => {
   const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
 
   const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
-  // const [selectedCard, setSelectedCard] = useState(userData.cards[0].id);
 
   function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
@@ -105,7 +93,7 @@ const User = () => {
 
   function handleCardClick(card) {
     setSelectedCard(card);
-    // setSelectedCard(userData.cards.findIndex((card) => card.id === id));
+
     console.log(selectedCard);
   }
 
