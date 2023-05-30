@@ -25,6 +25,11 @@
   cursor: pointer;
 }
 
+.content--card--image {
+  max-width: 300px;
+  max-height: auto;
+}
+
 .content--benefits {
   height: 75vh;
   overflow: scroll;
