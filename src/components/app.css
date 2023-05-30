@@ -21,12 +21,20 @@
   width: 50%;
 }
 
-.content--card {
+.cardlist--card {
+  max-height: 75%;
+  margin-left: 2%;
+}
+
+.content--cardsList--card {
+  align-items: center;
+  display: flex;
   height: 50px;
   width: 70%;
   border: 1px solid black;
   margin-bottom: 2vh;
   cursor: pointer;
+  gap: 15px;
 }
 
 .content--card--image {
@@ -56,4 +64,27 @@
 }
 
 @media screen and (max-width: 480px) {
+  .content--container {
+    flex-direction: column;
+  }
+
+  .content--cardsList {
+    padding: 2vw;
+    align-items: flex-start;
+    width: 90%;
+  }
+  .content--cardsList--card {
+    display: flex;
+    height: 30px;
+    width: 70%;
+    margin-bottom: 1vh;
+    gap: 10px;
+  }
+
+  .content--benefits {
+    padding: 2vw;
+    width: 90%;
+    height: 75vh;
+    overflow: scroll;
+  }
 }
