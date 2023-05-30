@@ -61,6 +61,19 @@
 }
 
 @media screen and (max-width: 768px) {
+  .content--cardsList {
+    overflow: scroll;
+    padding: 2vw;
+    align-items: flex-start;
+    width: 35%;
+    gap: 10px;
+  }
+  .content--cardsList--card {
+    width: 100%;
+  }
+  .content--card--image {
+    max-width: 230px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -94,7 +107,6 @@
   }
 
   .content--card--image {
-    max-width: 230px;
-    max-height: auto;
+    max-width: 260px;
   }
 }
