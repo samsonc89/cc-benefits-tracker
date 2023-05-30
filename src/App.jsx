@@ -87,14 +87,20 @@ const User = () => {
 
   function deleteCard(targetID) {
     let foundCard = userData.cards.find((card) => card.id === targetID);
+    let foundCardIndex = userData.cards.findIndex(
+      (card) => card.id === targetID
+    );
     if (foundCard) {
       setUserData({
         ...userData,
         cards: userData.cards.filter((card) => card.id !== targetID),
       });
-      //when you delete a card, set the selected back to the first card in the array
+      console.log(foundCardIndex);
+      //when you delete a card, set the selected back to the first card in the array, unless it's the first card
       if (userData.cards.length > 0) {
-        setSelectedCard(userData.cards[0]);
+        foundCardIndex === 0
+          ? setSelectedCard(userData.cards[1])
+          : setSelectedCard(userData.cards[0]);
       }
     }
   }
