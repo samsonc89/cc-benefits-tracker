@@ -135,7 +135,7 @@ const User = () => {
             return (
               <div
                 key={card.id}
-                className={`content--card  ${
+                className={`content--cardsList--card  ${
                   card.id === selectedCard.id ? "card--selected" : ""
                 }`}
                 id={card.id}
