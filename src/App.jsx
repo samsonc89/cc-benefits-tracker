@@ -18,10 +18,18 @@ const User = () => {
     );
   });
 
+  const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
+
+  const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
+
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
+
     //when there are changes to the user object, select either the selected card or the first card
-    setSelectedCard(userData.cards[selectedCard] || userData.cards[0]);
+
+    // setSelectedCard(
+    //   userData.cards.find((card) => card === selectedCard) || userData.cards[0]
+    // );
   }, [userData]);
 
   useEffect(() => {
@@ -33,21 +41,20 @@ const User = () => {
 
   function showData(e) {
     e.preventDefault();
-    console.log(userData);
-    console.log(BENEFITS);
+    console.log(userData.cards[0]);
   }
 
-  const [updatedObj, setUpdatedObj] = useState(0);
+  // const [updatedObj, setUpdatedObj] = useState(0);
 
   function checkIfAllUsed(data) {
     return data.benefits.every((bene) => bene.used === true);
   }
 
   const handleToggle = (benefitId) => {
-    let foundObj = userData.cards.findIndex((card) =>
-      card.benefits.some((benefit) => benefit.id === benefitId)
-    );
-    setUpdatedObj(foundObj);
+    // let foundObj = userData.cards.findIndex((card) =>
+    //   card.benefits.some((benefit) => benefit.id === benefitId)
+    // );
+    // setUpdatedObj(foundObj);
     setUserData((draft) => {
       //   //find which card, then which benefit
       const foundDraftObj = draft.cards.find((card) =>
@@ -59,10 +66,6 @@ const User = () => {
       foundBenefit.used = !foundBenefit.used;
     });
   };
-
-  const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
-
-  const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
 
   function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
@@ -89,6 +92,10 @@ const User = () => {
         ...userData,
         cards: userData.cards.filter((card) => card.id !== targetID),
       });
+      //when you delete a card, set the selected back to the first card in the array
+      if (userData.cards.length > 0) {
+        setSelectedCard(userData.cards[0]);
+      }
     }
   }
 
@@ -122,7 +129,7 @@ const User = () => {
               <div
                 key={card.id}
                 className={`content--card  ${
-                  card === selectedCard ? "card--selected" : ""
+                  card.id === selectedCard.id ? "card--selected" : ""
                 }`}
                 id={card.id}
                 onClick={() => handleCardClick(card)}
@@ -135,7 +142,10 @@ const User = () => {
         <div className="content--benefits">
           {userData.cards.length > 0 ? (
             <CreditCard
-              cardData={selectedCard}
+              //find from userData state because selectedCard state does not update when you change the checkboxes
+              cardData={userData.cards.find(
+                (card) => card.id === selectedCard.id
+              )}
               key={selectedCard.id}
               delBtn={deleteCard}
               onCheck={handleToggle}
