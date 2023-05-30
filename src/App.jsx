@@ -42,6 +42,7 @@ const User = () => {
   function showData(e) {
     e.preventDefault();
     console.log(userData.cards[0]);
+    console.log(BENEFITS);
   }
 
   // const [updatedObj, setUpdatedObj] = useState(0);
@@ -117,7 +118,7 @@ const User = () => {
           defaultValue={BENEFITS[0].id}
           onChange={(e) => setCardSelection(e.target.value)}
         >
-          {BENEFITS.map((card) => {
+          {BENEFITS.sort((a, b) => a.name.localeCompare(b.name)).map((card) => {
             return (
               <option key={card.id} value={card.id}>
                 {card.name}
@@ -140,6 +141,7 @@ const User = () => {
                 id={card.id}
                 onClick={() => handleCardClick(card)}
               >
+                <img src={card.img} className="cardlist--card" />
                 {card.name}
               </div>
             );
