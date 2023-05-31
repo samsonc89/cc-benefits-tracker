@@ -39,10 +39,50 @@ const User = () => {
     }
   }, [setUserData, userData]);
 
-  function showData(e) {
+  function showMonthlyUnused(e) {
     e.preventDefault();
     console.log(userData.cards[0]);
-    console.log(BENEFITS);
+    let monthlyBenefits = [];
+
+    userData.cards.forEach((card) => {
+      let filtered = card.benefits.filter(
+        (benefit) => benefit.expires == "Monthly" && benefit.used === false
+      );
+      if (filtered) {
+        filtered.forEach((card) => monthlyBenefits.push(card));
+      }
+    });
+
+    // console.log(monthlyBenefits.filter((bene) => bene.used === false));
+    console.log(monthlyBenefits);
+  }
+
+  function resetMonthly() {
+    setUserData((draft) => {
+      draft.cards.forEach((card) => {
+        let filtered = card.benefits.filter(
+          (benefit) => benefit.expires == "Monthly"
+        );
+        filtered.forEach((benefit) => (benefit.used = false));
+      });
+    });
+  }
+
+  function showAnnualUnused(e) {
+    e.preventDefault();
+    console.log(userData.cards[0]);
+    let annualBenefits = [];
+
+    userData.cards.forEach((card) => {
+      let filtered = card.benefits.filter(
+        (benefit) => benefit.expires == "12/31"
+      );
+      if (filtered) {
+        filtered.forEach((card) => annualBenefits.push(card));
+      }
+    });
+
+    console.log(annualBenefits.filter((bene) => bene.used === false));
   }
 
   // const [updatedObj, setUpdatedObj] = useState(0);
@@ -131,7 +171,7 @@ const User = () => {
               </div>
             );
           })}
-          <div>
+          <div className="content--cardsList--selector">
             <select
               defaultValue={BENEFITS[0].id}
               onChange={(e) => setCardSelection(e.target.value)}
@@ -147,7 +187,9 @@ const User = () => {
               )}
             </select>
             <button onClick={addCard}>Add Card</button>
-            <button onClick={showData}>Show</button>
+            <button onClick={showMonthlyUnused}>Show Monthly Unused</button>
+            <button onClick={showAnnualUnused}>Show Annual Unused</button>
+            <button onClick={resetMonthly}>Reset Monthly</button>
           </div>
         </div>
         <div className="content--benefits">
