@@ -20,7 +20,7 @@
       {
         "id": 1002,
         "benefit": "$50 Saks Fifth Credit (first half)",
-        "expires": "6/31",
+        "expires": "6/30",
         "used": false
       },
       {
@@ -100,7 +100,7 @@
       {
         "id": 2003,
         "benefit": "$5/mo DoorDash credit (can roll over twice)",
-        "expires": "6/31",
+        "expires": "6/30",
         "used": false
       },
       {
@@ -138,7 +138,7 @@
       {
         "id": 3000,
         "benefit": "$200 Dell Credit (1st half)",
-        "expires": "6/31",
+        "expires": "6/30",
         "used": false
       },
       {
