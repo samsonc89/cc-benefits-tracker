@@ -12,7 +12,7 @@ const User = () => {
     return (
       parsedUserData || {
         id: "user1",
-        username: "Test User 1",
+        username: "Hello!",
         cards: [],
       }
     );
@@ -41,7 +41,6 @@ const User = () => {
 
   function showMonthlyUnused(e) {
     e.preventDefault();
-    console.log(userData.cards[0]);
     let monthlyBenefits = [];
 
     userData.cards.forEach((card) => {
@@ -70,7 +69,6 @@ const User = () => {
 
   function showAnnualUnused(e) {
     e.preventDefault();
-    console.log(userData.cards[0]);
     let annualBenefits = [];
 
     userData.cards.forEach((card) => {
@@ -150,19 +148,32 @@ const User = () => {
     setSelectedCard(card);
   }
 
+  let today = Intl.DateTimeFormat(navigator.language, {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date());
+
   return (
     <div>
       <h2>{userData.username}</h2>
+      <h3>Today is: {today}</h3>
 
       <div className="content--container">
         <div className="content--cardsList">
           {userData.cards.map((card) => {
+            let filtered = card.benefits.filter(
+              (benefit) =>
+                benefit.expires === "Monthly" && benefit.used === false
+            );
+
             return (
               <div
                 key={card.id}
                 className={`content--cardsList--card  ${
                   card.id === selectedCard.id ? "card--selected" : ""
-                }`}
+                } ${filtered.length > 0 ? "expiring" : ""}`}
                 id={card.id}
                 onClick={() => handleCardClick(card)}
               >
