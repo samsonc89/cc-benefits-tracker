@@ -198,9 +198,10 @@ const User = () => {
               )}
             </select>
             <button onClick={addCard}>Add Card</button>
-            <button onClick={showMonthlyUnused}>Show Monthly Unused</button>
-            <button onClick={showAnnualUnused}>Show Annual Unused</button>
-            <button onClick={resetMonthly}>Reset Monthly</button>
+            {/* <button onClick={showMonthlyUnused}>Show Monthly Unused</button>
+            <button onClick={showAnnualUnused}>Show Annual Unused</button> */}
+            <br />
+            <button onClick={resetMonthly}>Reset Monthly Benefits</button>
           </div>
         </div>
         <div className="content--benefits">
