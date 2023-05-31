@@ -64,6 +64,9 @@
   background-color: white;
 }
 
+.expiring {
+  background-color: rgb(246, 136, 136);
+}
 .card--selected {
   background-color: rgb(201, 201, 201);
 }
@@ -74,9 +77,6 @@
 1025px — 1200px: Desktops, large screens */
 
 @media screen and (max-width: 1024px) {
-  .content--card {
-    width: 70%;
-  }
 }
 
 @media screen and (max-width: 768px) {
