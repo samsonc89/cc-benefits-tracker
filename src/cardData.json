@@ -119,7 +119,7 @@
         "id": 2006,
         "benefit": "$15 a month Instacart credit",
         "expires": "Monthly",
-        "used": ""
+        "used": false
       },
       {
         "id": 2001,
@@ -144,7 +144,7 @@
       {
         "id": 3001,
         "benefit": "$200 Dell Credit (2nd half)",
-        "expires": "12/31",
+        "expires": "End of the year",
         "used": false
       },
       {
