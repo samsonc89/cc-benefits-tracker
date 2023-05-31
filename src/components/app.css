@@ -80,15 +80,19 @@
 }
 
 @media screen and (max-width: 768px) {
+  .content--container {
+    padding: 0vw;
+  }
+
   .content--cardsList {
     overflow: scroll;
     padding: 2vw;
-    align-items: flex-start;
-    width: 35%;
     gap: 10px;
   }
   .content--cardsList--card {
-    width: 100%;
+    padding: 5px 2px;
+    width: 95%;
+    gap: 8px;
   }
   .content--card--image {
     max-width: 230px;
@@ -97,7 +101,8 @@
 
 @media screen and (max-width: 480px) {
   .content--container {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    padding: 2vw;
   }
 
   .content--cardsList {
@@ -105,7 +110,7 @@
     overflow: scroll;
     padding: 2vw;
     align-items: flex-start;
-    width: 90%;
+    min-width: 80vw;
     gap: 10px;
   }
   .content--cardsList--card {
