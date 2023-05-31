@@ -2,23 +2,31 @@
   color: red;
 }
 
-.card--selected {
-  background-color: rgb(201, 201, 201);
+* {
+  /* background-color: rgb(189, 189, 189); */
 }
 
 .content--container {
+  padding: 3vw;
   display: flex;
-  width: 100%;
+  max-width: 100vw;
   justify-content: center;
-  gap: 3vw;
+  /* gap: 3vw; */
 }
 
+.content--cardsList,
+.content--cardsList * {
+  background-color: white;
+}
 .content--cardsList {
+  background-color: white;
   padding: 2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  /* width: 50%; */
+  flex: 1;
+  max-width: 40%;
 }
 
 .cardlist--card {
@@ -30,11 +38,14 @@
   align-items: center;
   display: flex;
   height: 50px;
-  width: 70%;
+  width: 80%;
+  max-width: 300px;
   border: 1px solid black;
   margin-bottom: 2vh;
   cursor: pointer;
   gap: 15px;
+  border-radius: 8px;
+  padding: 0 5px;
 }
 
 .content--card--image {
@@ -47,6 +58,14 @@
   width: 50%;
   height: 75vh;
   overflow: scroll;
+}
+.content--benefits,
+.content--benefits * {
+  background-color: white;
+}
+
+.card--selected {
+  background-color: rgb(201, 201, 201);
 }
 
 /* 320px — 480px: Mobile devices
@@ -96,7 +115,6 @@
     margin-bottom: 1vh;
     gap: 10px;
     padding: 0 5px;
-    border-radius: 8px;
   }
 
   .content--benefits {

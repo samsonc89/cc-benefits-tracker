@@ -112,23 +112,8 @@ const User = () => {
 
   return (
     <div>
-      <div>
-        <h2>{userData.username}</h2>
-        <select
-          defaultValue={BENEFITS[0].id}
-          onChange={(e) => setCardSelection(e.target.value)}
-        >
-          {BENEFITS.sort((a, b) => a.name.localeCompare(b.name)).map((card) => {
-            return (
-              <option key={card.id} value={card.id}>
-                {card.name}
-              </option>
-            );
-          })}
-        </select>
-        <button onClick={addCard}>Add Card</button>
-        <button onClick={showData}>Show</button>
-      </div>
+      <h2>{userData.username}</h2>
+
       <div className="content--container">
         <div className="content--cardsList">
           {userData.cards.map((card) => {
@@ -146,6 +131,24 @@ const User = () => {
               </div>
             );
           })}
+          <div>
+            <select
+              defaultValue={BENEFITS[0].id}
+              onChange={(e) => setCardSelection(e.target.value)}
+            >
+              {BENEFITS.sort((a, b) => a.name.localeCompare(b.name)).map(
+                (card) => {
+                  return (
+                    <option key={card.id} value={card.id}>
+                      {card.name}
+                    </option>
+                  );
+                }
+              )}
+            </select>
+            <button onClick={addCard}>Add Card</button>
+            <button onClick={showData}>Show</button>
+          </div>
         </div>
         <div className="content--benefits">
           {userData.cards.length > 0 ? (
