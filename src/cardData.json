@@ -7,74 +7,74 @@
     "benefits": [
       {
         "id": 1000,
-        "benefit": "$50 Saks Fifth Credit (first half)",
-        "expires": "May 31",
-        "used": false
-      },
-      {
-        "id": 1001,
-        "benefit": "$50 Saks Fifth Credit (2nd half)",
-        "expires": "Dec 31",
-        "used": false
-      },
-      {
-        "id": 1002,
-        "benefit": "$200 Airline incidentals",
-        "expires": "12/31",
-        "used": false
-      },
-      {
-        "id": 1003,
         "benefit": "$15m/mo Uber credit",
         "expires": "Monthly",
         "used": false
       },
       {
-        "id": 1004,
+        "id": 1001,
         "benefit": "$20/mo Digital Entertainment Credit",
         "expires": "Monthly",
         "used": false
       },
       {
-        "id": 1005,
-        "benefit": "TSA/Global Entry fee credit",
-        "expires": "Once every 4 years",
+        "id": 1002,
+        "benefit": "$50 Saks Fifth Credit (first half)",
+        "expires": "6/31",
         "used": false
       },
       {
-        "id": 1006,
+        "id": 1003,
+        "benefit": "$50 Saks Fifth Credit (2nd half)",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1004,
+        "benefit": "$200 Airline incidentals",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1005,
         "benefit": "$200 Fine Hotels + Resorts/The Hotel Collection Credit",
         "expires": "12/31",
         "used": false
       },
       {
-        "id": 1007,
+        "id": 1006,
         "benefit": "$300 Equinox credit",
         "expires": "12/31",
         "used": false
       },
       {
-        "id": 1008,
-        "benefit": "$300 SoulCycle At-Home Bike Credit",
-        "expires": "Once",
-        "used": false
-      },
-      {
-        "id": 1009,
+        "id": 1007,
         "benefit": "$189 CLEAR Credit",
         "expires": "12/31",
         "used": false
       },
       {
+        "id": 1008,
+        "benefit": "$155 Walmart+ Membership Credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 1009,
+        "benefit": "$800 Cell phone protection ($50 deductible)",
+        "expires": "12/31",
+        "used": false
+      },
+      {
         "id": 1010,
-        "benefit": "12.95/mo Walmart+ Membership Credit",
-        "expires": "Monthly",
+        "benefit": "TSA/Global Entry fee credit",
+        "expires": "Once every 4 years",
         "used": false
       },
       {
         "id": 1011,
-        "benefit": "$800 Cell phone protection ($50 deductible)",
-        "expires": "12/31",
+        "benefit": "$300 SoulCycle At-Home Bike Credit",
+        "expires": "Once",
         "used": false
       }
     ]
@@ -89,12 +89,6 @@
         "id": 2000,
         "benefit": "$300 Travel Credit",
         "expires": "12/31",
-        "used": false
-      },
-      {
-        "id": 2001,
-        "benefit": "TSA/Global Entry",
-        "expires": "once every 4 years",
         "used": false
       },
       {
@@ -126,6 +120,12 @@
         "benefit": "$15 a month Instacart credit",
         "expires": "Monthly",
         "used": ""
+      },
+      {
+        "id": 2001,
+        "benefit": "TSA/Global Entry",
+        "expires": "once every 4 years",
+        "used": false
       }
     ]
   },
@@ -137,32 +137,32 @@
     "benefits": [
       {
         "id": 3000,
-        "benefit": "$200 Airline incidentals",
-        "expires": "12/31",
-        "used": false
-      },
-      {
-        "id": 3001,
-        "benefit": "TSA/Global Entry fee credit",
-        "expires": "Once every 4 years",
-        "used": false
-      },
-      {
-        "id": 3002,
-        "benefit": "$189 CLEAR Credit",
-        "expires": "12/31",
-        "used": false
-      },
-      {
-        "id": 3003,
         "benefit": "$200 Dell Credit (1st half)",
         "expires": "6/31",
         "used": false
       },
       {
-        "id": 3004,
+        "id": 3001,
         "benefit": "$200 Dell Credit (2nd half)",
         "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3002,
+        "benefit": "$200 Airline incidentals",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3003,
+        "benefit": "$150 Adobe creative cloud credit",
+        "expires": "12/31",
+        "used": false
+      },
+      {
+        "id": 3004,
+        "benefit": "$90 Indeed credit",
+        "expires": "Every 3 months",
         "used": false
       },
       {
@@ -173,14 +173,14 @@
       },
       {
         "id": 3006,
-        "benefit": "$150 Adobe creative cloud credit",
+        "benefit": "$189 CLEAR Credit",
         "expires": "12/31",
         "used": false
       },
       {
         "id": 3007,
-        "benefit": "$90/quarter Indeed credit",
-        "expires": "",
+        "benefit": "TSA/Global Entry fee credit",
+        "expires": "Once every 4 years",
         "used": false
       },
       {
