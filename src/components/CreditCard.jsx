@@ -25,7 +25,11 @@ const CreditCard = ({ cardData, delBtn, onCheck }) => {
           {cardData.benefits.map((benefit) => (
             <tr key={benefit.id} className={benefit.used ? "done" : ""}>
               <td>{benefit.benefit}</td>
-              <td>{benefit.expires}</td>
+              <td>
+                {benefit.expires === "End of the year"
+                  ? "12/31"
+                  : benefit.expires}
+              </td>
               <td>
                 <input
                   type="checkbox"
