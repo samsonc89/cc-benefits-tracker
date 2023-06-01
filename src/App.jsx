@@ -3,7 +3,6 @@ import CreditCard from "./components/CreditCard";
 import cardData from "./cardData.json";
 import { useEffect, useState } from "react";
 import { useImmer } from "use-immer";
-import { DateTime } from "./luxon";
 
 const BENEFITS = cardData;
 
@@ -107,9 +106,7 @@ const User = () => {
         (benefit) => benefit.id === benefitId
       );
       foundBenefit.used = !foundBenefit.used;
-      foundBenefit.used === true
-        ? (foundBenefit.lastUsed = DateTime.now())
-        : "";
+      foundBenefit.used === true ? (foundBenefit.lastUsed = new Date()) : "";
     });
   };
 
