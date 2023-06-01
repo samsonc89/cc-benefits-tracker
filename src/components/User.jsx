@@ -12,7 +12,7 @@ const User = ({ info }) => {
     return (
       parsedUserData || {
         id: "user1",
-        username: "Hello!",
+        username: "Hello",
         cards: [],
       }
     );
@@ -155,7 +155,7 @@ const User = ({ info }) => {
   return (
     <div>
       <h2>
-        {userData.username} {info}
+        {userData.username} {info}!
       </h2>
       <h3>
         Today is:{" "}
