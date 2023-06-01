@@ -195,7 +195,7 @@
     "id": 400,
     "name": "Capital One Venture X",
     "allUsed": false,
-    "img": "../assets/venturex.png",
+    "img": "./assets/venturex.png",
     "benefits": [
       {
         "id": 4000,
@@ -215,7 +215,7 @@
     "id": 500,
     "name": "Chase Sapphire Preferred",
     "allUsed": false,
-    "img": "../assets/chase-sapphire-preferred.png",
+    "img": "./assets/chase-sapphire-preferred.png",
     "benefits": [
       {
         "id": 5000,
