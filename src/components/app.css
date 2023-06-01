@@ -2,6 +2,19 @@
   text-decoration: line-through;
 }
 
+button {
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.modal--hidden {
+  display: none;
+}
+
+.modal {
+}
+
 .content--container {
   padding: 3vw;
   display: flex;
