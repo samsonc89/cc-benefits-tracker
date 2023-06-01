@@ -6,7 +6,7 @@ import { useImmer } from "use-immer";
 
 const BENEFITS = cardData;
 
-const User = () => {
+const User = ({ info }) => {
   const [userData, setUserData] = useImmer(() => {
     const parsedUserData = JSON.parse(localStorage.getItem("userData"));
     return (
@@ -86,12 +86,6 @@ const User = () => {
     console.log(annualBenefits.filter((bene) => bene.used === false));
   }
 
-  // const [updatedObj, setUpdatedObj] = useState(0);
-
-  function checkIfAllUsed(data) {
-    return data.benefits.every((bene) => bene.used === true);
-  }
-
   const handleToggle = (benefitId) => {
     // let foundObj = userData.cards.findIndex((card) =>
     //   card.benefits.some((benefit) => benefit.id === benefitId)
@@ -160,7 +154,9 @@ const User = () => {
 
   return (
     <div>
-      <h2>{userData.username}</h2>
+      <h2>
+        {userData.username} {info}
+      </h2>
       <h3>
         Today is:{" "}
         {Intl.DateTimeFormat(navigator.language, {
