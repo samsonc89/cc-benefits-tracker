@@ -60,6 +60,16 @@ const User = () => {
       });
     });
   }
+  function resetAnnual() {
+    setUserData((draft) => {
+      draft.cards.forEach((card) => {
+        let filtered = card.benefits.filter(
+          (benefit) => benefit.expires == "6/30" || benefit.expires == "12/31"
+        );
+        filtered.forEach((benefit) => (benefit.used = false));
+      });
+    });
+  }
 
   function showAnnualUnused(e) {
     e.preventDefault();
@@ -146,11 +156,9 @@ const User = () => {
   }
 
   let today = new Date();
-
   let todayMonth = today.getMonth() + 1;
   let todayDay = today.getDate();
   let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
   let todayShort = new Date(`${todayMonth}/${todayDay}`);
 
   return (
@@ -172,8 +180,6 @@ const User = () => {
             let unUsedBenefits = card.benefits
               //first filter all unused
               .filter((benefit) => benefit.used === false)
-
-              // let filteredBenefit = unUsedBenefits
               //then filter the monthly ones
               .filter((benefit) => {
                 if (benefit.expires == "Monthly") {
@@ -182,7 +188,6 @@ const User = () => {
                   //then find the ones whose date is this month
                 } else if (new Date(benefit.expires) != "Invalid Date") {
                   let expDate = new Date(benefit.expires);
-
                   if (expDate.getMonth() + 1 == todayMonth) {
                     return benefit;
                   }
@@ -192,7 +197,8 @@ const User = () => {
             let urgentBenefits = unUsedBenefits.filter((benefit) => {
               let expDate = new Date(benefit.expires);
               if (
-                //do todayShort because some exp dates are hard coded as 12/31
+                //do todayShort because some exp dates are hard coded as 12/31 but this is for the
+                //beenfits that expires on an anniversary date
                 (expDate.getTime() - todayShort.getTime()) /
                   (1000 * 60 * 60 * 24.0) <=
                 14
@@ -240,6 +246,7 @@ const User = () => {
             <button onClick={showAnnualUnused}>Show Annual Unused</button> */}
             <br />
             <button onClick={resetMonthly}>Reset Monthly Benefits</button>
+            <button onClick={resetAnnual}>Reset Annual Benefits</button>
           </div>
         </div>
         <div className="content--benefits">
