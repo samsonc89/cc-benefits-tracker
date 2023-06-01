@@ -3,6 +3,7 @@ import CreditCard from "./components/CreditCard";
 import cardData from "./cardData.json";
 import { useEffect, useState } from "react";
 import { useImmer } from "use-immer";
+import { DateTime } from "./luxon";
 
 const BENEFITS = cardData;
 
@@ -24,12 +25,6 @@ const User = () => {
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
-
-    //when there are changes to the user object, select either the selected card or the first card
-
-    // setSelectedCard(
-    //   userData.cards.find((card) => card === selectedCard) || userData.cards[0]
-    // );
   }, [userData]);
 
   useEffect(() => {
@@ -52,7 +47,6 @@ const User = () => {
       }
     });
 
-    // console.log(monthlyBenefits.filter((bene) => bene.used === false));
     console.log(monthlyBenefits);
   }
 
@@ -73,7 +67,7 @@ const User = () => {
 
     userData.cards.forEach((card) => {
       let filtered = card.benefits.filter(
-        (benefit) => benefit.expires == "12/31"
+        (benefit) => benefit.expires == "12/31" && benefit.expires == "6/30"
       );
       if (filtered) {
         filtered.forEach((card) => annualBenefits.push(card));
@@ -103,6 +97,9 @@ const User = () => {
         (benefit) => benefit.id === benefitId
       );
       foundBenefit.used = !foundBenefit.used;
+      foundBenefit.used === true
+        ? (foundBenefit.lastUsed = DateTime.now())
+        : "";
     });
   };
 
@@ -148,32 +145,73 @@ const User = () => {
     setSelectedCard(card);
   }
 
-  let today = Intl.DateTimeFormat(navigator.language, {
-    weekday: "long",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date());
+  let today = new Date();
+
+  let todayMonth = today.getMonth() + 1;
+  let todayDay = today.getDate();
+  let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+  let todayShort = new Date(`${todayMonth}/${todayDay}`);
 
   return (
     <div>
       <h2>{userData.username}</h2>
-      <h3>Today is: {today}</h3>
+      <h3>
+        Today is:{" "}
+        {Intl.DateTimeFormat(navigator.language, {
+          weekday: "long",
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }).format(today)}
+      </h3>
 
       <div className="content--container">
         <div className="content--cardsList">
           {userData.cards.map((card) => {
-            let filtered = card.benefits.filter(
-              (benefit) =>
-                benefit.expires === "Monthly" && benefit.used === false
-            );
+            let unUsedBenefits = card.benefits
+              //first filter all unused
+              .filter((benefit) => benefit.used === false)
+
+              // let filteredBenefit = unUsedBenefits
+              //then filter the monthly ones
+              .filter((benefit) => {
+                if (benefit.expires == "Monthly") {
+                  return benefit;
+
+                  //then find the ones whose date is this month
+                } else if (new Date(benefit.expires) != "Invalid Date") {
+                  let expDate = new Date(benefit.expires);
+
+                  if (expDate.getMonth() + 1 == todayMonth) {
+                    return benefit;
+                  }
+                }
+              });
+            console.log(unUsedBenefits);
+            let urgentBenefits = unUsedBenefits.filter((benefit) => {
+              let expDate = new Date(benefit.expires);
+              if (
+                //do todayShort because some exp dates are hard coded as 12/31
+                (expDate.getTime() - todayShort.getTime()) /
+                  (1000 * 60 * 60 * 24.0) <=
+                14
+              ) {
+                return benefit;
+              }
+            });
 
             return (
               <div
                 key={card.id}
                 className={`content--cardsList--card  ${
                   card.id === selectedCard.id ? "card--selected" : ""
-                } ${filtered.length > 0 ? "expiring" : ""}`}
+                } ${unUsedBenefits.length > 0 ? "expiring" : ""} ${
+                  urgentBenefits.length > 0 ||
+                  (unUsedBenefits.length > 0 && lastDayOfMonth - today <= 14)
+                    ? "urgent"
+                    : ""
+                }`}
                 id={card.id}
                 onClick={() => handleCardClick(card)}
               >

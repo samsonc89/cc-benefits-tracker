@@ -113,7 +113,7 @@
         "id": 2005,
         "benefit": "One year free Instacart+ membership",
         "expires": "7/31/2024",
-        "used": ""
+        "used": false
       },
       {
         "id": 2006,
