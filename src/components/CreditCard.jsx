@@ -9,7 +9,7 @@ const CreditCard = ({ cardData, delBtn, onCheck }) => {
       <table>
         <thead>
           <tr>
-            <th colSpan={2}>{cardData.name}</th>
+            <th colSpan={1}>{cardData.name}</th>
             <th>
               <button onClick={() => delBtn(cardData.id)}>Delete Card</button>
             </th>
