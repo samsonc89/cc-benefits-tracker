@@ -3,7 +3,7 @@
     "id": 100,
     "name": "Amex Platinum Personal",
     "allUsed": false,
-    "img": "../assets/amex-plat-personal.png",
+    "img": "./assets/amex-plat-personal.png",
     "benefits": [
       {
         "id": 1000,
@@ -83,7 +83,7 @@
     "id": 200,
     "name": "Chase Sapphire Reserve",
     "allUsed": false,
-    "img": "../assets/chase-sapphire-reserve.png",
+    "img": "./assets/chase-sapphire-reserve.png",
     "benefits": [
       {
         "id": 2000,
@@ -133,7 +133,7 @@
     "id": 300,
     "name": "Amex Platinum Business",
     "allUsed": false,
-    "img": "../assets/amex-plat-business.png",
+    "img": "./assets/amex-plat-business.png",
     "benefits": [
       {
         "id": 3000,
