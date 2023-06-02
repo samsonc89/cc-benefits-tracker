@@ -1,15 +1,32 @@
-const Modal = ({ onClick, state, change }) => {
+import { useState } from "react";
+
+const Modal = ({ addName, state, change, closeInstructions }) => {
+  const [welcome, setWelcome] = useState(false);
+  function closeWelcome(e) {
+    e.preventDefault();
+    setWelcome(true);
+  }
+
   return (
     <div className={state ? "modal--hidden" : "modal--container"}>
-      <div className="modal">
+      <div className={welcome === false ? "modal--welcome" : "modal--hidden"}>
         <h1>Welcome!</h1>
         <h2>What should we call you?</h2>
-        <form>
+        <form onSubmit={closeWelcome}>
           <input type="text" onChange={change}></input>
-          <button type="button" onClick={() => onClick()}>
+          <button type="button" onClick={closeWelcome}>
             Submit
           </button>
         </form>
+      </div>
+      <div
+        className={welcome === true ? "modal--instructions" : "modal--hidden"}
+      >
+        <h1>How this works!</h1>
+        <img src="./assets/instructions.png" />
+        <button type="submit" onClick={(e) => closeInstructions(e)}>
+          Got it!
+        </button>
       </div>
     </div>
   );

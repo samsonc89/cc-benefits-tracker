@@ -20,13 +20,24 @@ button {
   align-items: center;
 }
 
-.modal {
+.modal--welcome {
   /* width: 50vw; */
   padding: 5vw;
   background-color: rgb(255, 255, 255);
   border: 1px solid #ccc;
 
   text-align: center;
+}
+.modal--instructions {
+  max-width: 50%;
+  padding: 5vw;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+
+  text-align: center;
+}
+.modal--instructions > img {
+  max-width: 100%;
 }
 
 .content--container {
