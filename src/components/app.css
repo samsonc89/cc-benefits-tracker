@@ -117,6 +117,11 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+  .modal--instructions {
+    max-width: 75%;
+    padding: 3vw 0;
+  }
+
   .content--container {
     padding: 0vw;
   }
@@ -137,6 +142,14 @@ button {
 }
 
 @media screen and (max-width: 480px) {
+  .modal--instructions {
+    max-width: 90%;
+    padding: 3vw 0;
+  }
+  .modal--instructions > img {
+    max-width: 100%;
+  }
+
   .content--container {
     flex-direction: column-reverse;
     padding: 2vw;
