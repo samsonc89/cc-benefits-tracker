@@ -3,7 +3,10 @@ import User from "./components/User";
 import Modal from "./components/Modal";
 
 function App() {
-  const [userName, setUserName] = useState("There");
+  const [userName, setUserName] = useState(() => {
+    const savedUserName = JSON.parse(localStorage.getItem("userName"));
+    return savedUserName || "There";
+  });
   const [visited, setVisited] = useState(() => {
     const savedVisited = JSON.parse(localStorage.getItem("visited"));
     return savedVisited || false;
@@ -14,15 +17,31 @@ function App() {
   }, [visited]);
 
   useEffect(() => {
+    localStorage.setItem("userName", JSON.stringify(userName));
+  }, [userName]);
+
+  useEffect(() => {
     const savedVisited = JSON.parse(localStorage.getItem("visited"));
     if (savedVisited) {
       setVisited(visited);
     }
   }, [setVisited, visited]);
 
+  useEffect(() => {
+    const savedUserName = JSON.parse(localStorage.getItem("userName"));
+    if (savedUserName) {
+      setUserName(userName);
+    }
+  }, [setUserName, userName]);
+
   function handleSubmit() {
-    // e.preventDefault();
+    // event.preventDefault();
     setVisited(true);
+  }
+
+  function showInstructions(e) {
+    e.preventDefault();
+    console.log(e.target);
   }
 
   function handleChange(e) {
@@ -32,7 +51,12 @@ function App() {
 
   return (
     <>
-      <Modal onClick={handleSubmit} state={visited} change={handleChange} />
+      <Modal
+        closeInstructions={handleSubmit}
+        state={visited}
+        change={handleChange}
+        addName={showInstructions}
+      />
       <User info={userName} />
     </>
   );
