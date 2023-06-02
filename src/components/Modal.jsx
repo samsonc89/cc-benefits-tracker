@@ -24,7 +24,7 @@ const Modal = ({ addName, state, change, closeInstructions }) => {
       >
         <h1>How this works!</h1>
         <img src="./assets/instructions.png" />
-        <button type="submit" onClick={closeInstructions}>
+        <button type="submit" onClick={(e) => closeInstructions(e)}>
           Got it!
         </button>
       </div>
