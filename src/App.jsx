@@ -39,11 +39,6 @@ function App() {
     setVisited(true);
   }
 
-  function showInstructions(e) {
-    e.preventDefault();
-    console.log(e.target);
-  }
-
   function handleChange(e) {
     let value = e.target.value;
     setUserName(value);
@@ -55,7 +50,6 @@ function App() {
         closeInstructions={handleSubmit}
         state={visited}
         change={handleChange}
-        addName={showInstructions}
       />
       <User info={userName} />
     </>
