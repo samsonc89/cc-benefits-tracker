@@ -1,5 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 .done {
   text-decoration: line-through;
+}
+
+body {
+  background-color: grey;
 }
 
 button {
@@ -43,14 +51,18 @@ button {
 }
 
 .container--main {
-  padding: 5vw;
+  margin: 4vw;
+  padding: 2vw;
+  background-color: white;
+  max-height: 90vh;
+  border-radius: 8px;
 }
 
 .content--container {
-  padding: 3vw;
+  /* padding: 3vw; */
   display: flex;
   max-width: 100vw;
-  max-height: 100vh;
+  max-height: 90vh;
   justify-content: center;
   /* gap: 3vw; */
 }
