@@ -42,6 +42,10 @@ button {
   max-width: 100%;
 }
 
+.container--main {
+  padding: 5vw;
+}
+
 .content--container {
   padding: 3vw;
   display: flex;
