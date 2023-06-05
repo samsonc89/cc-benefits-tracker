@@ -152,6 +152,13 @@ const User = ({ info }) => {
     setSelectedCard(card);
   }
 
+  function handleReset() {
+    localStorage.clear();
+
+    setUserData({ ...userData, cards: [] });
+    window.location.reload(false);
+  }
+
   let today = new Date();
   let todayMonth = today.getMonth() + 1;
   let todayDay = today.getDate();
@@ -160,27 +167,9 @@ const User = ({ info }) => {
 
   return (
     <div className="container--main">
-      <div className="content--header">
-        <div className="header--text">
-          <h2>Hello {info}!</h2>
-          <h3>
-            Today is:{" "}
-            {Intl.DateTimeFormat(navigator.language, {
-              weekday: "long",
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            }).format(today)}
-          </h3>
-        </div>
-        <div className="header--buttons">
-          <button onClick={resetMonthly}>Reset Monthly Benefits</button>
-          <button onClick={resetAnnual}>Reset Annual Benefits</button>
-        </div>
-      </div>
-
       <div className="content--container">
         <div className="content--cardsList">
+          <h2>Your Cards</h2>
           {userData.cards.map((card) => {
             let unUsedBenefits = card.benefits
               //first filter all unused
@@ -198,7 +187,7 @@ const User = ({ info }) => {
                   }
                 }
               });
-            console.log(unUsedBenefits);
+
             let urgentBenefits = unUsedBenefits.filter((benefit) => {
               let expDate = new Date(benefit.expires);
               if (
@@ -253,6 +242,25 @@ const User = ({ info }) => {
           </div>
         </div>
         <div className="content--benefits">
+          <div className="content--header">
+            <div className="header--text">
+              <h2>Hello {info}!</h2>
+              <h3>
+                Today is:{" "}
+                {Intl.DateTimeFormat(navigator.language, {
+                  weekday: "long",
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                }).format(today)}
+              </h3>
+            </div>
+            <div className="header--buttons">
+              <button onClick={resetMonthly}>Reset Monthly Benefits</button>
+              <button onClick={resetAnnual}>Reset Annual Benefits</button>
+              <button onClick={handleReset}>Reset Data</button>
+            </div>
+          </div>
           {userData.cards.length > 0 ? (
             <CreditCard
               //find from userData state because selectedCard state does not update when you change the checkboxes
