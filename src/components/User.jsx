@@ -160,16 +160,24 @@ const User = ({ info }) => {
 
   return (
     <div className="container--main">
-      <h2>Hello {info}!</h2>
-      <h3>
-        Today is:{" "}
-        {Intl.DateTimeFormat(navigator.language, {
-          weekday: "long",
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        }).format(today)}
-      </h3>
+      <div className="content--header">
+        <div className="header--text">
+          <h2>Hello {info}!</h2>
+          <h3>
+            Today is:{" "}
+            {Intl.DateTimeFormat(navigator.language, {
+              weekday: "long",
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            }).format(today)}
+          </h3>
+        </div>
+        <div className="header--buttons">
+          <button onClick={resetMonthly}>Reset Monthly Benefits</button>
+          <button onClick={resetAnnual}>Reset Annual Benefits</button>
+        </div>
+      </div>
 
       <div className="content--container">
         <div className="content--cardsList">
@@ -242,8 +250,6 @@ const User = ({ info }) => {
             {/* <button onClick={showMonthlyUnused}>Show Monthly Unused</button>
               <button onClick={showAnnualUnused}>Show Annual Unused</button> */}
             <br />
-            <button onClick={resetMonthly}>Reset Monthly Benefits</button>
-            <button onClick={resetAnnual}>Reset Annual Benefits</button>
           </div>
         </div>
         <div className="content--benefits">
