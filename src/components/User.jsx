@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import CreditCard from "./CreditCard";
 
 import cardData from "../cardData.json";
@@ -158,7 +159,7 @@ const User = ({ info }) => {
   let todayShort = new Date(`${todayMonth}/${todayDay}`);
 
   return (
-    <div>
+    <div className="container--main">
       <h2>Hello {info}!</h2>
       <h3>
         Today is:{" "}
