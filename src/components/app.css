@@ -136,6 +136,19 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+  h2 {
+    margin-bottom: 0;
+  }
+  h3 {
+    margin-top: 5px;
+  }
+  .container--main {
+    margin: 4vw;
+    padding: 2vw;
+
+    /* max-height: 95vh; */
+  }
+
   .modal--instructions {
     max-width: 75%;
     padding: 3vw 0;
@@ -143,6 +156,7 @@ button {
 
   .content--container {
     padding: 0vw;
+    height: 100%;
   }
 
   .content--cardsList {
@@ -158,9 +172,19 @@ button {
   .content--card--image {
     max-width: 230px;
   }
+
+  .content--benefits {
+    max-height: 100%;
+    overflow: scroll;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .container--main {
+    margin: 2vw;
+    padding: 2vw;
+    max-height: 100%;
+  }
   .modal--instructions {
     max-width: 90%;
     padding: 3vw 0;
@@ -193,9 +217,13 @@ button {
 
   .content--benefits {
     padding: 2vw;
-    width: 90%;
+    width: 95%;
     height: 75vh;
     overflow: scroll;
+  }
+
+  .content--benefits > table {
+    width: 100%;
   }
 
   .content--card--image {
