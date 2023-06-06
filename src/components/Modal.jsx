@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const Modal = ({ addName, state, change, closeInstructions }) => {
+// eslint-disable-next-line react/prop-types
+const Modal = ({ state, change, closeInstructions }) => {
   const [welcome, setWelcome] = useState(false);
   function closeWelcome(e) {
     e.preventDefault();
