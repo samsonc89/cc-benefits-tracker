@@ -96,7 +96,7 @@ button {
   align-items: center;
   display: flex;
   height: 50px;
-  width: 80%;
+  width: 85%;
   max-width: 300px;
   border: 1px solid black;
   margin-bottom: 2vh;
@@ -107,6 +107,7 @@ button {
 }
 
 .content--cardsList--selector {
+  width: 90%;
   margin-top: auto;
 }
 
