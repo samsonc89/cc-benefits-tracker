@@ -10,10 +10,16 @@ body {
   background-color: grey;
 }
 
+button:active {
+  background-color: #b2b2b2;
+}
+
 button {
   border: 1px solid black;
   border-radius: 8px;
   box-shadow: none;
+  cursor: pointer;
+  c
 }
 
 .modal--hidden {
@@ -208,27 +214,30 @@ button {
 
   .content--container {
     flex-direction: column-reverse;
-    padding: 2vw;
   }
 
   .content--cardsList h2 {
     display: none;
   }
   .content--cardsList {
+    margin-top: 8px;
     flex-direction: row;
     overflow: scroll;
-    padding: 2vw;
     align-items: flex-start;
     min-width: 80vw;
     gap: 10px;
   }
   .content--cardsList--card {
     display: flex;
-    height: 70px;
-    min-width: 200px;
+    height: 50px;
+    min-width: 150px;
     margin-bottom: 1vh;
     gap: 10px;
     padding: 0 5px;
+  }
+
+  .cardlist--card {
+    display: none;
   }
 
   .content--cardsList--selector {
@@ -246,6 +255,6 @@ button {
   }
 
   .content--card--image {
-    max-width: 260px;
+    max-width: 150px;
   }
 }
