@@ -169,7 +169,7 @@ const User = ({ info }) => {
     <div className="container--main">
       <div className="content--container">
         <div className="content--cardsList">
-          <h2>Your Cards</h2>
+          <h3>Your Cards</h3>
           {userData.cards.map((card) => {
             let unUsedBenefits = card.benefits
               //first filter all unused
