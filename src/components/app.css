@@ -92,6 +92,7 @@ button {
 }
 
 .content--cardsList--card {
+  background-color: white;
   align-items: center;
   display: flex;
   height: 50px;
