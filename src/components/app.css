@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: grey;
+  background-color: rgb(69, 122, 84);
 }
 
 button:active {
@@ -19,7 +19,6 @@ button {
   border-radius: 8px;
   box-shadow: none;
   cursor: pointer;
-  c
 }
 
 .modal--hidden {
@@ -80,7 +79,7 @@ button {
 }
 
 .content--cardsList {
-  background-color: rgb(213, 213, 213);
+  background-color: rgb(228, 228, 228);
   border-radius: 8px;
   padding: 2vw;
   display: flex;
@@ -104,6 +103,10 @@ button {
   gap: 15px;
   border-radius: 8px;
   padding: 0 5px;
+}
+
+.content--cardsList--selector {
+  margin-top: auto;
 }
 
 .content--card--image {
