@@ -3,6 +3,7 @@
     "id": 100,
     "name": "Amex Platinum Personal",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/amex-plat-personal.png",
     "benefits": [
       {
@@ -83,6 +84,7 @@
     "id": 200,
     "name": "Chase Sapphire Reserve",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/chase-sapphire-reserve.png",
     "benefits": [
       {
@@ -133,6 +135,7 @@
     "id": 300,
     "name": "Amex Platinum Business",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/amex-plat-business.png",
     "benefits": [
       {
@@ -195,6 +198,7 @@
     "id": 400,
     "name": "Capital One Venture X",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/venturex.png",
     "benefits": [
       {
@@ -215,6 +219,7 @@
     "id": 500,
     "name": "Chase Sapphire Preferred",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/chase-sapphire-preferred.png",
     "benefits": [
       {
@@ -247,6 +252,7 @@
     "id": 600,
     "name": "Marriott Bonboy Boundless",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/marriott-boundless.png",
     "benefits": [
       {
@@ -261,6 +267,7 @@
     "id": 700,
     "name": "Southwest Performance Business",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/southwest-performance.png",
     "benefits": [
       {
@@ -299,6 +306,7 @@
     "id": 800,
     "name": "Southwest Priority",
     "allUsed": false,
+    "anniversary": "",
     "img": "./assets/southwest-priority.png",
     "benefits": [
       {
