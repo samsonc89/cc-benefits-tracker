@@ -242,5 +242,19 @@
         "used": false
       }
     ]
+  },
+  {
+    "id": 600,
+    "name": "Marriott Bonboy Boundless",
+    "allUsed": false,
+    "img": "./assets/marriott-boundless.png",
+    "benefits": [
+      {
+        "id": 6000,
+        "benefit": "Free Anniversary Night (Up to 35,000 points)",
+        "expires": "After 12 months",
+        "used": false
+      }
+    ]
   }
 ]
