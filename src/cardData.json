@@ -256,5 +256,43 @@
         "used": false
       }
     ]
+  },
+  {
+    "id": 700,
+    "name": "Southwest Performance Business",
+    "allUsed": false,
+    "img": "./assets/southwest-performance.png",
+    "benefits": [
+      {
+        "id": 7000,
+        "benefit": "TSA/Global Entry fee credit",
+        "expires": "Once every 4 years",
+        "used": false
+      },
+      {
+        "id": 7001,
+        "benefit": "Upgraded Boarding #1",
+        "expires": "After 12 months",
+        "used": false
+      },
+      {
+        "id": 7002,
+        "benefit": "Upgraded Boarding #2",
+        "expires": "After 12 months",
+        "used": false
+      },
+      {
+        "id": 7003,
+        "benefit": "Upgraded Boarding #3",
+        "expires": "After 12 months",
+        "used": false
+      },
+      {
+        "id": 7004,
+        "benefit": "Upgraded Boarding #4",
+        "expires": "After 12 months",
+        "used": false
+      }
+    ]
   }
 ]
