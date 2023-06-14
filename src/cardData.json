@@ -294,5 +294,43 @@
         "used": false
       }
     ]
+  },
+  {
+    "id": 800,
+    "name": "Southwest Priority",
+    "allUsed": false,
+    "img": "./assets/southwest-priority.png",
+    "benefits": [
+      {
+        "id": 8000,
+        "benefit": "$75 travel credit",
+        "expires": "Every anniversary",
+        "used": false
+      },
+      {
+        "id": 8001,
+        "benefit": "Upgraded Boarding #1",
+        "expires": "Every anniversary",
+        "used": false
+      },
+      {
+        "id": 8002,
+        "benefit": "Upgraded Boarding #2",
+        "expires": "Every anniversary",
+        "used": false
+      },
+      {
+        "id": 8003,
+        "benefit": "Upgraded Boarding #3",
+        "expires": "Every anniversary",
+        "used": false
+      },
+      {
+        "id": 8004,
+        "benefit": "Upgraded Boarding #4",
+        "expires": "Every anniversary",
+        "used": false
+      }
+    ]
   }
 ]
