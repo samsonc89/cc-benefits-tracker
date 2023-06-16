@@ -86,6 +86,17 @@ const User = ({ info }) => {
     console.log(annualBenefits.filter((bene) => bene.used === false));
   }
 
+  // const handleAnniversaryUpdate = (cardId, date) => {
+  //   const updatedCards = user.cards.map((card) => {
+  //     if (card.id === cardId) {
+  //       return { ...card, anniversary: date };
+  //     }
+  //     return card;
+  //   });
+
+  //   setUserData({ ...userData, cards: updatedCards });
+  // };
+
   // const [updatedObj, setUpdatedObj] = useState(0);
 
   function checkIfAllUsed(data) {
@@ -148,7 +159,9 @@ const User = ({ info }) => {
     }
   }
 
-  function handleCardClick(card) {
+  function handleCardClick(event, card) {
+    console.log(event.target.type);
+    if (event.target != "button");
     setSelectedCard(card);
   }
 
@@ -204,19 +217,33 @@ const User = ({ info }) => {
             return (
               <div
                 key={card.id}
-                className={`content--cardsList--card  ${
-                  card.id === selectedCard.id ? "card--selected" : ""
-                } ${unUsedBenefits.length > 0 ? "expiring" : ""} ${
-                  urgentBenefits.length > 0 ||
-                  (unUsedBenefits.length > 0 && lastDayOfMonth - today <= 14)
-                    ? "urgent"
-                    : ""
-                }`}
-                id={card.id}
-                onClick={() => handleCardClick(card)}
+                className="content--cardsList--card--container"
               >
-                <img src={card.img} className="cardlist--card" />
-                {card.name}
+                <div
+                  className={`content--cardsList--card  ${
+                    card.id === selectedCard.id ? "card--selected" : ""
+                  } ${unUsedBenefits.length > 0 ? "expiring" : ""} ${
+                    urgentBenefits.length > 0 ||
+                    (unUsedBenefits.length > 0 && lastDayOfMonth - today <= 14)
+                      ? "urgent"
+                      : ""
+                  }`}
+                  id={card.id}
+                  onClick={() => handleCardClick(event, card)}
+                >
+                  <img src={card.img} className="cardlist--card" />
+                  {card.name}
+                </div>
+                <button type="button" onClick={() => deleteCard(card.id)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    height="20px"
+                  >
+                    <title>trash-can-outline</title>
+                    <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+                  </svg>
+                </button>
               </div>
             );
           })}
