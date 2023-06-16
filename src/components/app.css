@@ -103,7 +103,15 @@ button {
   max-height: 75%;
   margin-left: 2%;
 }
+.content--cardsList--card--container {
+  display: flex;
+}
 
+.content--cardsList--card--container > button {
+  border: none;
+  background: none;
+  max-height: 50px;
+}
 .content--cardsList--card {
   background-color: white;
   align-items: center;
