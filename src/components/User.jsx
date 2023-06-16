@@ -159,9 +159,7 @@ const User = ({ info }) => {
     }
   }
 
-  function handleCardClick(event, card) {
-    console.log(event.target.type);
-    if (event.target != "button");
+  function handleCardClick(card) {
     setSelectedCard(card);
   }
 
@@ -229,7 +227,7 @@ const User = ({ info }) => {
                       : ""
                   }`}
                   id={card.id}
-                  onClick={() => handleCardClick(event, card)}
+                  onClick={() => handleCardClick(card)}
                 >
                   <img src={card.img} className="cardlist--card" />
                   {card.name}
