@@ -112,6 +112,10 @@ button {
   background: none;
   max-height: 50px;
 }
+
+.btn-edit {
+  border: none;
+}
 .content--cardsList--card {
   background-color: white;
   align-items: center;
