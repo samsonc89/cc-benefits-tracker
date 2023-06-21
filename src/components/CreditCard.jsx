@@ -9,9 +9,10 @@ const CreditCard = ({ cardData, delBtn, onCheck }) => {
       <table>
         <thead>
           <tr>
-            <th colSpan={1}>{cardData.name}</th>
+            <th>{cardData.name}</th>
             <th>
-              <button onClick={() => delBtn(cardData.id)}>Delete Card</button>
+              Anniversary: {cardData.anniversary}
+              <button onClick={() => delBtn(cardData.id)}>Edit</button>
             </th>
           </tr>
           <tr>
