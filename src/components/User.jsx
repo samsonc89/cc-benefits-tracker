@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import CreditCard from "./CreditCard";
 
@@ -86,16 +87,19 @@ const User = ({ info }) => {
     console.log(annualBenefits.filter((bene) => bene.used === false));
   }
 
-  // const handleAnniversaryUpdate = (cardId, date) => {
-  //   const updatedCards = user.cards.map((card) => {
-  //     if (card.id === cardId) {
-  //       return { ...card, anniversary: date };
-  //     }
-  //     return card;
-  //   });
+  const handleAnniversaryUpdate = (cardId, date) => {
+    const updatedCards = userData.cards.map((card) => {
+      if (card.id === cardId) {
+        return {
+          ...card,
+          anniversary: date,
+        };
+      }
+      return card;
+    });
 
-  //   setUserData({ ...userData, cards: updatedCards });
-  // };
+    setUserData({ ...userData, cards: updatedCards });
+  };
 
   // const [updatedObj, setUpdatedObj] = useState(0);
 
@@ -292,7 +296,7 @@ const User = ({ info }) => {
                 (card) => card.id === selectedCard.id
               )}
               key={selectedCard.id}
-              delBtn={deleteCard}
+              dateChange={handleAnniversaryUpdate}
               onCheck={handleToggle}
             />
           ) : (
