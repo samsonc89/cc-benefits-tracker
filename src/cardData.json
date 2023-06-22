@@ -147,7 +147,7 @@
       {
         "id": 3001,
         "benefit": "$200 Dell Credit (2nd half)",
-        "expires": "End of the year",
+        "expires": "12/31",
         "used": false
       },
       {
@@ -258,7 +258,7 @@
       {
         "id": 6000,
         "benefit": "Free Anniversary Night (Up to 35,000 points)",
-        "expires": "After 12 months",
+        "expires": "Every anniversary",
         "used": false
       }
     ]
@@ -279,25 +279,25 @@
       {
         "id": 7001,
         "benefit": "Upgraded Boarding #1",
-        "expires": "After 12 months",
+        "expires": "Every anniversary",
         "used": false
       },
       {
         "id": 7002,
         "benefit": "Upgraded Boarding #2",
-        "expires": "After 12 months",
+        "expires": "Every anniversary",
         "used": false
       },
       {
         "id": 7003,
         "benefit": "Upgraded Boarding #3",
-        "expires": "After 12 months",
+        "expires": "Every anniversary",
         "used": false
       },
       {
         "id": 7004,
         "benefit": "Upgraded Boarding #4",
-        "expires": "After 12 months",
+        "expires": "Every anniversary",
         "used": false
       }
     ]
