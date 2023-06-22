@@ -87,18 +87,56 @@ const User = ({ info }) => {
     console.log(annualBenefits.filter((bene) => bene.used === false));
   }
 
+  const getDayBefore = (date) => {
+    const formatter = new Intl.DateTimeFormat("en-us", {
+      month: "2-digit",
+      day: "2-digit",
+    });
+
+    let previousDay = new Date(date);
+    previousDay.setDate(previousDay.getDate() - 1);
+    const previous = formatter.format(new Date(date));
+    // previous.setDate(date.getDate() - 1);
+
+    return formatter.format(previousDay);
+  };
+
   const handleAnniversaryUpdate = (cardId, date) => {
     const updatedCards = userData.cards.map((card) => {
       if (card.id === cardId) {
+        const updatedBenefits = card.benefits.map((benefit) => {
+          return {
+            ...benefit,
+            expires:
+              benefit.type === "anniversary"
+                ? getDayBefore(date)
+                : benefit.expires,
+          };
+        });
+
         return {
           ...card,
           anniversary: date,
+          benefits: updatedBenefits,
         };
       }
       return card;
     });
 
     setUserData({ ...userData, cards: updatedCards });
+  };
+
+  const changeExpDate = (anniversary, exp) => {
+    //check if the benefits expires every anniversary.
+    if (exp !== "Every anniversary" && anniversary != "") {
+      return;
+    } else {
+      setUserData((draft) => {});
+    }
+
+    /* If it does, then check if the anniversary date is blank.
+  if the anniversary date is blank, set exp date to the text
+  if anniversary date is not blank, set exp date to anniversary date */
   };
 
   // const [updatedObj, setUpdatedObj] = useState(0);
