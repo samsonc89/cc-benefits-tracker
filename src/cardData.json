@@ -259,6 +259,7 @@
         "id": 6000,
         "benefit": "Free Anniversary Night (Up to 35,000 points)",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       }
     ]
@@ -280,24 +281,28 @@
         "id": 7001,
         "benefit": "Upgraded Boarding #1",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 7002,
         "benefit": "Upgraded Boarding #2",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 7003,
         "benefit": "Upgraded Boarding #3",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 7004,
         "benefit": "Upgraded Boarding #4",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       }
     ]
@@ -313,30 +318,35 @@
         "id": 8000,
         "benefit": "$75 travel credit",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 8001,
         "benefit": "Upgraded Boarding #1",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 8002,
         "benefit": "Upgraded Boarding #2",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 8003,
         "benefit": "Upgraded Boarding #3",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       },
       {
         "id": 8004,
         "benefit": "Upgraded Boarding #4",
         "expires": "Every anniversary",
+        "type": "anniversary",
         "used": false
       }
     ]
