@@ -156,15 +156,14 @@ const User = ({ info }) => {
     e.preventDefault();
 
     //check if user already has selected card
-    if (userData.cards.some((card) => card.name === foundCard[0].name)) {
-      alert("Card already added");
-    } else {
-      let newCard = foundCard.map((card) => ({ ...card }));
+    // if (userData.cards.some((card) => card.name === foundCard[0].name)) {
+    //   alert("Card already added");
+    // } else {
+    let newCard = foundCard.map((card) => ({ ...card }));
 
-      setSelectedCard(newCard[0]);
-      //add that card to the userData
-      setUserData({ ...userData, cards: userData.cards.concat(newCard) });
-    }
+    setSelectedCard(newCard[0]);
+    //add that card to the userData
+    setUserData({ ...userData, cards: userData.cards.concat(newCard) });
   }
 
   function deleteCard(targetID) {
