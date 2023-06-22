@@ -96,7 +96,6 @@ const User = ({ info }) => {
     let previousDay = new Date(date);
     previousDay.setDate(previousDay.getDate() - 1);
     const previous = formatter.format(new Date(date));
-    // previous.setDate(date.getDate() - 1);
 
     return formatter.format(previousDay);
   };
@@ -124,19 +123,6 @@ const User = ({ info }) => {
     });
 
     setUserData({ ...userData, cards: updatedCards });
-  };
-
-  const changeExpDate = (anniversary, exp) => {
-    //check if the benefits expires every anniversary.
-    if (exp !== "Every anniversary" && anniversary != "") {
-      return;
-    } else {
-      setUserData((draft) => {});
-    }
-
-    /* If it does, then check if the anniversary date is blank.
-  if the anniversary date is blank, set exp date to the text
-  if anniversary date is not blank, set exp date to anniversary date */
   };
 
   // const [updatedObj, setUpdatedObj] = useState(0);
