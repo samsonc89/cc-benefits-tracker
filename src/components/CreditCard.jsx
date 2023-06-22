@@ -30,6 +30,13 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
     setIsDatePickerOpen(false);
   };
 
+  // const getDayBefore = (date) => {
+  //   const previous = formatter.format(new Date(date));
+  //   // previous.setDate(date.getDate() - 1);
+
+  //   return previous;
+  // };
+
   return (
     <>
       <img src={cardData.img} className="content--card--image" />
@@ -81,8 +88,15 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
             <tr key={benefit.id} className={benefit.used ? "done" : ""}>
               <td>{benefit.benefit}</td>
               <td>
-                {benefit.expires === "End of the year"
-                  ? "12/31"
+                {/* check if the benefits expires every anniversary. 
+                If it does, then check if the anniversary date is blank.
+                if the anniversary date is blank, set exp date to the text
+                if anniversary date is not blank, set exp date to anniversary date */}
+                {benefit.expires === "Every anniversary"
+                  ? cardData.anniversary === ""
+                    ? benefit.expires
+                    : // : getDayBefore(cardData.anniversary)
+                      cardData.anniversary
                   : benefit.expires}
               </td>
               <td>
