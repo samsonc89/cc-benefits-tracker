@@ -150,20 +150,39 @@ const User = ({ info }) => {
   };
 
   function addCard(e) {
+    function checkIfCardExsists(newCard) {
+      if (userData.cards.some((card) => card.id === newCard[0].id)) {
+        newCard[0].id += 1;
+        checkIfCardExsists(newCard);
+      } else return newCard;
+    }
     //go through the list of cards and find the one that matches the id and create a clone of the card
     let foundCard = BENEFITS.filter((ob) => ob.id == cardSelection);
     // .map((card) => ({ ...card }));
     e.preventDefault();
 
     //check if user already has selected card
-    // if (userData.cards.some((card) => card.name === foundCard[0].name)) {
-    //   alert("Card already added");
-    // } else {
     let newCard = foundCard.map((card) => ({ ...card }));
-
+    checkIfCardExsists(newCard);
+    newCard[0].benefits.map(
+      (benefit) => (benefit.id = newCard[0].id + `${benefit.id}`)
+    );
+    console.log(newCard[0]);
     setSelectedCard(newCard[0]);
     //add that card to the userData
     setUserData({ ...userData, cards: userData.cards.concat(newCard) });
+    // if (userData.cards.some((card) => card.id === foundCard[0].id)) {
+    //   let newCard = foundCard.map((card) => ({ ...card, id: card.id + 1 }));
+    //   setSelectedCard(newCard[0]);
+    //   //add that card to the userData
+    //   setUserData({ ...userData, cards: userData.cards.concat(newCard) });
+    // }
+    // else {
+    //   let newCard = foundCard.map((card) => ({ ...card }));
+    //   setSelectedCard(newCard[0]);
+    //   //add that card to the userData
+    //   setUserData({ ...userData, cards: userData.cards.concat(newCard) });
+    // }
   }
 
   function deleteCard(targetID) {
