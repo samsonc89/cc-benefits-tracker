@@ -19,7 +19,7 @@ const User = ({ info }) => {
     );
   });
 
-  const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
+  const [cardSelection, setCardSelection] = useState(BENEFITS[0]);
 
   const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
 
@@ -149,40 +149,47 @@ const User = ({ info }) => {
     });
   };
 
-  function addCard(e) {
-    function checkIfCardExsists(newCard) {
-      if (userData.cards.some((card) => card.id === newCard[0].id)) {
-        newCard[0].id += 1;
-        checkIfCardExsists(newCard);
-      } else return newCard;
+  function duplicateAndModifyCard(originalCard) {
+    // Generate a new random 3-digit ID
+    let newId = Math.floor(Math.random() * 900) + 100;
+
+    //Make sure tihere is not another card with that ID already
+    while (userData.cards.some((card) => card.id === newId)) {
+      newId = Math.floor(Math.random() * 900) + 100;
     }
+
+    // Create a shallow copy of the original object
+    const duplicatedCard = { ...originalCard };
+
+    // Update the ID of the duplicated object
+    duplicatedCard.id = newId;
+
+    // Update the IDs of the nested objects in the "benefits" array
+    duplicatedCard.benefits = duplicatedCard.benefits.map((benefit) => {
+      return {
+        ...benefit,
+        id: Number(`${newId}${benefit.id}`),
+      };
+    });
+
+    return duplicatedCard;
+  }
+
+  function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
-    let foundCard = BENEFITS.filter((ob) => ob.id == cardSelection);
-    // .map((card) => ({ ...card }));
+    let foundCard = BENEFITS.filter((ob) => ob == cardSelection)[0];
+    console.log("FOUND:", foundCard);
     e.preventDefault();
 
     //check if user already has selected card
-    let newCard = foundCard.map((card) => ({ ...card }));
-    checkIfCardExsists(newCard);
-    newCard[0].benefits.map(
-      (benefit) => (benefit.id = newCard[0].id + `${benefit.id}`)
-    );
-    console.log(newCard[0]);
-    setSelectedCard(newCard[0]);
+    // let newCard = foundCard.map((card) => ({ ...card }));
+    let newCard = duplicateAndModifyCard(foundCard);
+    // console.log("NEW CARD:", newCard);
+
+    console.log(newCard);
+    setSelectedCard(newCard);
     //add that card to the userData
     setUserData({ ...userData, cards: userData.cards.concat(newCard) });
-    // if (userData.cards.some((card) => card.id === foundCard[0].id)) {
-    //   let newCard = foundCard.map((card) => ({ ...card, id: card.id + 1 }));
-    //   setSelectedCard(newCard[0]);
-    //   //add that card to the userData
-    //   setUserData({ ...userData, cards: userData.cards.concat(newCard) });
-    // }
-    // else {
-    //   let newCard = foundCard.map((card) => ({ ...card }));
-    //   setSelectedCard(newCard[0]);
-    //   //add that card to the userData
-    //   setUserData({ ...userData, cards: userData.cards.concat(newCard) });
-    // }
   }
 
   function deleteCard(targetID) {
@@ -292,13 +299,15 @@ const User = ({ info }) => {
           })}
           <div className="content--cardsList--selector">
             <select
-              defaultValue={BENEFITS[0].id}
+              // defaultValue={BENEFITS[0].id}
+              defaultValue={BENEFITS[0]}
               onChange={(e) => setCardSelection(e.target.value)}
             >
               {BENEFITS.sort((a, b) => a.name.localeCompare(b.name)).map(
                 (card) => {
                   return (
-                    <option key={card.id} value={card.id}>
+                    // <option key={card.id} value={card.id}>
+                    <option key={card.id} value={card}>
                       {card.name}
                     </option>
                   );
