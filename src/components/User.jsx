@@ -64,6 +64,12 @@ const User = ({ info }) => {
     }));
   };
 
+  const handleNameKeyUp = (event, id) => {
+    if (event.key === "Enter") {
+      handleNameUpdate(id);
+    }
+  };
+
   const handleEditNameButton = (id) => {
     setIsEditing((prevState) => ({
       ...prevState,
@@ -318,7 +324,8 @@ const User = ({ info }) => {
                       <input
                         type="text"
                         value={editedName[card.id] || ""}
-                        onChange={() => handleNameChange(event, card.id)}
+                        onChange={(event) => handleNameChange(event, card.id)}
+                        onKeyUp={(event) => handleNameKeyUp(event, card.id)}
                       />
                       <SetButton onClick={() => handleNameUpdate(card.id)} />
                     </div>
