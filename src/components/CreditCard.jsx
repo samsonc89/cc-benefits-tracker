@@ -4,6 +4,7 @@
 import "./app.css";
 import { useState } from "react";
 import EditButton from "./EditButton.jsx";
+import SetButton from "./SetButton";
 
 const CreditCard = ({ cardData, dateChange, onCheck }) => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
@@ -45,9 +46,9 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
             <th>
               <EditButton onClick={handleButtonClick} />
               {isDatePickerOpen && (
-                <div>
+                <div className="datePicker--container">
                   <input type="date" onChange={handleDateChange} />
-                  <button
+                  {/* <button
                     onClick={() =>
                       handleDatePickerClose(
                         cardData.id,
@@ -56,7 +57,15 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
                     }
                   >
                     Set
-                  </button>
+                  </button> */}
+                  <SetButton
+                    onClick={() =>
+                      handleDatePickerClose(
+                        cardData.id,
+                        formatter.format(selectedDate)
+                      )
+                    }
+                  />
                 </div>
               )}
             </th>
