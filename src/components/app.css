@@ -152,6 +152,15 @@ button {
   background-color: white;
 }
 
+.datePicker--container,
+.nameEditor {
+  display: flex;
+  align-items: center;
+}
+.nameEditor > button {
+  background: none;
+}
+
 .expiring {
   background-color: rgb(255, 194, 194);
 }
