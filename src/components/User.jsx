@@ -5,6 +5,8 @@ import CreditCard from "./CreditCard";
 import cardData from "../cardData.json";
 import { useEffect, useState } from "react";
 import { useImmer } from "use-immer";
+import EditButton from "./EditButton";
+import SetButton from "./SetButton";
 
 const BENEFITS = cardData;
 
@@ -21,7 +23,9 @@ const User = ({ info }) => {
 
   const [cardSelection, setCardSelection] = useState(BENEFITS[0]);
   const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
-  const [isEditing, setIsEdiiting] = useState(false);
+
+  const [editedName, setEditedName] = useState({});
+  const [isEditing, setIsEditing] = useState({});
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -33,6 +37,39 @@ const User = ({ info }) => {
       setUserData(userData);
     }
   }, [setUserData, userData]);
+
+  const handleNameChange = (event, id) => {
+    setEditedName((prevState) => ({
+      ...prevState,
+      [id]: event.target.value,
+    }));
+  };
+
+  const handleNameUpdate = (cardId) => {
+    const updatedCards = userData.cards.map((card) => {
+      if (card.id === cardId) {
+        const updatedName = editedName[cardId];
+        return {
+          ...card,
+          name: updatedName,
+        };
+      }
+      return card;
+    });
+
+    setUserData({ ...userData, cards: updatedCards });
+    setIsEditing((prevState) => ({
+      ...prevState,
+      [cardId]: false,
+    }));
+  };
+
+  const handleEditNameButton = (id) => {
+    setIsEditing((prevState) => ({
+      ...prevState,
+      [id]: true,
+    }));
+  };
 
   function showMonthlyUnused(e) {
     e.preventDefault();
@@ -276,7 +313,18 @@ const User = ({ info }) => {
                   onClick={() => handleCardClick(card)}
                 >
                   <img src={card.img} className="cardlist--card" />
-                  {card.name}
+                  {isEditing[card.id] ? (
+                    <div className="nameEditor">
+                      <input
+                        type="text"
+                        value={editedName[card.id] || ""}
+                        onChange={() => handleNameChange(event, card.id)}
+                      />
+                      <SetButton onClick={() => handleNameUpdate(card.id)} />
+                    </div>
+                  ) : (
+                    <div>{card.name}</div>
+                  )}
                 </div>
                 <button type="button" onClick={() => deleteCard(card.id)}>
                   <svg
@@ -288,6 +336,7 @@ const User = ({ info }) => {
                     <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
                   </svg>
                 </button>
+                <EditButton onClick={() => handleEditNameButton(card.id)} />
               </div>
             );
           })}
