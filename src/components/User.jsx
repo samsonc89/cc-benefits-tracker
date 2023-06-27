@@ -20,8 +20,8 @@ const User = ({ info }) => {
   });
 
   const [cardSelection, setCardSelection] = useState(BENEFITS[0]);
-
   const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
+  const [isEditing, setIsEdiiting] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -125,17 +125,11 @@ const User = ({ info }) => {
     setUserData({ ...userData, cards: updatedCards });
   };
 
-  // const [updatedObj, setUpdatedObj] = useState(0);
-
   function checkIfAllUsed(data) {
     return data.benefits.every((bene) => bene.used === true);
   }
 
   const handleToggle = (benefitId) => {
-    // let foundObj = userData.cards.findIndex((card) =>
-    //   card.benefits.some((benefit) => benefit.id === benefitId)
-    // );
-    // setUpdatedObj(foundObj);
     setUserData((draft) => {
       //   //find which card, then which benefit
       const foundDraftObj = draft.cards.find((card) =>
