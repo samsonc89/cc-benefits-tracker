@@ -21,7 +21,7 @@ const User = ({ info }) => {
     );
   });
 
-  const [cardSelection, setCardSelection] = useState(BENEFITS[0]);
+  const [cardSelection, setCardSelection] = useState(BENEFITS[0].id);
   const [selectedCard, setSelectedCard] = useState(userData.cards[0]);
 
   const [editedName, setEditedName] = useState({});
@@ -350,7 +350,7 @@ const User = ({ info }) => {
           <div className="content--cardsList--selector">
             <select
               // defaultValue={BENEFITS[0].id}
-              defaultValue={BENEFITS[0]}
+              defaultValue={BENEFITS[0].id}
               onChange={(e) => {
                 setCardSelection(e.target.value);
                 console.log(e.target.value);
