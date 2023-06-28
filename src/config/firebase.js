@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -12,10 +13,11 @@ const firebaseConfig = {
   projectId: "credit-card-benefits-tracker",
   storageBucket: "credit-card-benefits-tracker.appspot.com",
   messagingSenderId: "787918316413",
-  appId: "1:787918316413:web:b4741e31483346b4ed6214",
-  measurementId: "G-VPM398WLN3",
+  appId: "1:787918316413:web:71005b4ca84fd322ed6214",
+  measurementId: "G-8H2GK28LFY",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+export const auth = getAuth(app);
