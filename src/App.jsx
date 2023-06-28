@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import User from "./components/User";
 import Modal from "./components/Modal";
+import Auth from "./components/Auth";
 
 function App() {
   const [userName, setUserName] = useState(() => {
@@ -51,6 +52,7 @@ function App() {
         state={visited}
         change={handleChange}
       />
+      <Auth />
       <User info={userName} />
     </>
   );
