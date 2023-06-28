@@ -214,13 +214,13 @@ const User = ({ info }) => {
 
   function addCard(e) {
     //go through the list of cards and find the one that matches the id and create a clone of the card
-    let foundCard = BENEFITS.filter((ob) => ob == cardSelection)[0];
+    let foundCard = BENEFITS.filter((ob) => ob.id == cardSelection);
     console.log("FOUND:", foundCard);
     e.preventDefault();
 
     //check if user already has selected card
     // let newCard = foundCard.map((card) => ({ ...card }));
-    let newCard = duplicateAndModifyCard(foundCard);
+    let newCard = duplicateAndModifyCard(foundCard[0]);
     // console.log("NEW CARD:", newCard);
 
     console.log(newCard);
@@ -351,13 +351,16 @@ const User = ({ info }) => {
             <select
               // defaultValue={BENEFITS[0].id}
               defaultValue={BENEFITS[0]}
-              onChange={(e) => setCardSelection(e.target.value)}
+              onChange={(e) => {
+                setCardSelection(e.target.value);
+                console.log(e.target.value);
+              }}
             >
               {BENEFITS.sort((a, b) => a.name.localeCompare(b.name)).map(
                 (card) => {
                   return (
                     // <option key={card.id} value={card.id}>
-                    <option key={card.id} value={card}>
+                    <option key={card.id} value={card.id}>
                       {card.name}
                     </option>
                   );
