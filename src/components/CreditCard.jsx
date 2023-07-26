@@ -5,10 +5,20 @@ import "./app.css";
 import { useState } from "react";
 import EditButton from "./EditButton.jsx";
 import SetButton from "./SetButton";
+import { format } from "date-fns";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 
 const CreditCard = ({ cardData, dateChange, onCheck }) => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
+
+  const [selected, setSelected] = useState();
+
+  let footer = <p>Please pick a day.</p>;
+  if (selected) {
+    footer = <p>You picked {format(selected, "PP")}.</p>;
+  }
   const formatter = new Intl.DateTimeFormat("en-us", {
     month: "2-digit",
     day: "2-digit",
@@ -20,12 +30,14 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
 
   const handleDateChange = (event) => {
     if (!event.target.value == "") {
+      console.log(event.target.value);
       setSelectedDate(new Date(event.target.value + "T00:00:00"));
     }
   };
 
   const handleDatePickerClose = (cardId, date) => {
     if (!selectedDate == "") {
+      console.log(date);
       dateChange(cardId, date);
     }
 
@@ -47,7 +59,14 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
               <EditButton onClick={handleButtonClick} />
               {isDatePickerOpen && (
                 <div className="datePicker--container">
-                  <input type="date" onChange={handleDateChange} />
+                  <DayPicker
+                    className="daypicker"
+                    mode="single"
+                    selected={selected}
+                    onSelect={setSelected}
+                    footer={footer}
+                  />
+                  {/* <input type="date" onChange={handleDateChange} /> */}
                   <SetButton
                     onClick={() =>
                       handleDatePickerClose(

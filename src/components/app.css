@@ -117,6 +117,9 @@ button {
 .btn-edit {
   border: none;
 }
+.daypicker {
+  position: absolute;
+}
 .content--cardsList--card {
   background-color: white;
   align-items: center;
@@ -153,6 +156,9 @@ button {
   background-color: white;
 }
 
+.datePicker--container {
+  position: relative;
+}
 .datePicker--container,
 .nameEditor {
   display: flex;
