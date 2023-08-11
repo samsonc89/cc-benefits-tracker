@@ -75,7 +75,7 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
                     onClick={() =>
                       handleDatePickerClose(
                         cardData.id,
-                        format(selected, "MM/dd")
+                        format(new Date(selected), "MM/dd")
                       )
                     }
                   />
