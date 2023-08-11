@@ -11,7 +11,7 @@ import "react-day-picker/dist/style.css";
 
 const CreditCard = ({ cardData, dateChange, onCheck }) => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
+  // const [selectedDate, setSelectedDate] = useState(null);
 
   const [selected, setSelected] = useState();
 
@@ -28,15 +28,19 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
     setIsDatePickerOpen(true);
   };
 
-  const handleDateChange = (event) => {
-    if (!event.target.value == "") {
-      console.log(event.target.value);
-      setSelectedDate(new Date(event.target.value + "T00:00:00"));
-    }
+  const handleDaySelect = (date) => {
+    setSelected(date);
   };
 
+  // const handleDateChange = (event) => {
+  //   if (!event.target.value == "") {
+  //     console.log(event.target.value);
+  //     setSelectedDate(new Date(event.target.value + "T00:00:00"));
+  //   }
+  // };
+
   const handleDatePickerClose = (cardId, date) => {
-    if (!selectedDate == "") {
+    if (!selected == "") {
       console.log(date);
       dateChange(cardId, date);
     }
@@ -63,7 +67,7 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
                     className="daypicker"
                     mode="single"
                     selected={selected}
-                    onSelect={setSelected}
+                    onSelect={handleDaySelect}
                     footer={footer}
                   />
                   {/* <input type="date" onChange={handleDateChange} /> */}
@@ -71,7 +75,7 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
                     onClick={() =>
                       handleDatePickerClose(
                         cardData.id,
-                        formatter.format(selectedDate)
+                        formatter.format(selected)
                       )
                     }
                   />
