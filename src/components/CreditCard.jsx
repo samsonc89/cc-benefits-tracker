@@ -30,6 +30,7 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
 
   const handleDaySelect = (date) => {
     setSelected(date);
+    console.log(selected);
   };
 
   // const handleDateChange = (event) => {
