@@ -153,7 +153,8 @@ const User = ({ info }) => {
             ...benefit,
             expires:
               benefit.type === "anniversary"
-                ? getDayBefore(date)
+                ? // ? getDayBefore(date)
+                  date
                 : benefit.expires,
           };
         });
