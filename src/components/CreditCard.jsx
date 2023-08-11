@@ -43,7 +43,8 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
   const handleDatePickerClose = (cardId, date) => {
     if (!selected == "") {
       console.log(date);
-      dateChange(cardId, date);
+      let formatted = format(date, "MM/dd");
+      dateChange(cardId, formatted);
     }
 
     setIsDatePickerOpen(false);
@@ -73,12 +74,7 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
                   />
                   {/* <input type="date" onChange={handleDateChange} /> */}
                   <SetButton
-                    onClick={() =>
-                      handleDatePickerClose(
-                        cardData.id,
-                        format(new Date(selected), "MM/dd")
-                      )
-                    }
+                    onClick={() => handleDatePickerClose(cardData.id, selected)}
                   />
                 </div>
               )}
