@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useImmer } from "use-immer";
 import EditButton from "./EditButton";
 import SetButton from "./SetButton";
+import { format } from "date-fns";
 
 const BENEFITS = cardData;
 
@@ -140,7 +141,8 @@ const User = ({ info }) => {
     previousDay.setDate(previousDay.getDate() - 1);
     const previous = formatter.format(new Date(date));
 
-    return formatter.format(previousDay);
+    return format(previousDay, "MM/dd");
+    // return formatter.format(previousDay);
   };
 
   const handleAnniversaryUpdate = (cardId, date) => {
