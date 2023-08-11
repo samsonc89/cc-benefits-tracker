@@ -145,7 +145,7 @@ const User = ({ info }) => {
     // return formatter.format(previousDay);
   };
 
-  const handleAnniversaryUpdate = (cardId, date) => {
+  const handleAnniversaryUpdate = (cardId, formatted, date) => {
     const updatedCards = userData.cards.map((card) => {
       if (card.id === cardId) {
         const updatedBenefits = card.benefits.map((benefit) => {
@@ -153,15 +153,15 @@ const User = ({ info }) => {
             ...benefit,
             expires:
               benefit.type === "anniversary"
-                ? // ? getDayBefore(date)
-                  date
-                : benefit.expires,
+                ? getDayBefore(date)
+                : //  ? formatted
+                  benefit.expires,
           };
         });
 
         return {
           ...card,
-          anniversary: date,
+          anniversary: formatted,
           benefits: updatedBenefits,
         };
       }

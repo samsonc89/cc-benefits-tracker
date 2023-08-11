@@ -44,7 +44,7 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
     if (!selected == "") {
       console.log(date);
       let formatted = format(date, "MM/dd");
-      dateChange(cardId, formatted);
+      dateChange(cardId, formatted, date);
     }
 
     setIsDatePickerOpen(false);
