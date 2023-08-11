@@ -140,8 +140,8 @@ const User = ({ info }) => {
     let previousDay = new Date(date);
     previousDay.setDate(previousDay.getDate() - 1);
     const previous = formatter.format(new Date(date));
-
-    return format(previousDay, "MM/dd");
+    let formatted = format(previousDay, "MM/dd");
+    return formatted;
     // return formatter.format(previousDay);
   };
 
