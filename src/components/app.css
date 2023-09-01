@@ -160,9 +160,15 @@ button {
 
 .daypicker {
   position: absolute;
-  top: 0%;
-  left: 30%;
+  top: 10%;
+  right: 0%;
+  border: 1px solid black;
 }
+
+.daypicker-confirm {
+  margin-bottom: 10px;
+}
+
 .datePicker--container,
 .nameEditor {
   display: flex;

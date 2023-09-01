@@ -17,7 +17,12 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
 
   let footer = <p>Please pick a day.</p>;
   if (selected) {
-    footer = <p>You picked {format(selected, "PP")}.</p>;
+    footer = (
+      <>
+        <p>You picked {format(selected, "PP")}.</p>
+        <button className="daypicker-confirm">confirm</button>
+      </>
+    );
   }
   const formatter = new Intl.DateTimeFormat("en-us", {
     month: "2-digit",
