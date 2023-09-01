@@ -80,10 +80,6 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
                     onSelect={handleDaySelect}
                     footer={footer}
                   />
-                  {/* <input type="date" onChange={handleDateChange} /> */}
-                  <SetButton
-                    onClick={() => handleDatePickerClose(cardData.id, selected)}
-                  />
                 </div>
               )}
             </th>
