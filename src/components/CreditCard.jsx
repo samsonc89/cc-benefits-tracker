@@ -20,7 +20,12 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
     footer = (
       <>
         <p>You picked {format(selected, "PP")}.</p>
-        <button className="daypicker-confirm">confirm</button>
+        <button
+          className="daypicker-confirm"
+          onClick={() => handleDatePickerClose(cardData.id, selected)}
+        >
+          confirm
+        </button>
       </>
     );
   }
@@ -35,7 +40,6 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
 
   const handleDaySelect = (date) => {
     setSelected(date);
-    console.log(selected);
   };
 
   // const handleDateChange = (event) => {
@@ -47,7 +51,6 @@ const CreditCard = ({ cardData, dateChange, onCheck }) => {
 
   const handleDatePickerClose = (cardId, date) => {
     if (!selected == "") {
-      console.log(date);
       let formatted = format(date, "MM/dd");
       dateChange(cardId, formatted, date);
     }
